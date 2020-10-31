@@ -1,0 +1,25 @@
+<!--pages/courselist/courselist.wxml-->
+<view class="container">
+	<view class="cutitle cu-bar">
+		<view class="action">家庭课程</view>
+	</view>
+	<view class="coursebox cu-list menu">
+		<block wx:for='{{familyData}}' wx:key='index'>
+			<view class="cu-item">
+				<navigator class="img" hover-class="none" url="../course/course?id={{item.id}}">
+					<image src="{{item.img}}" />
+				</navigator>
+				<view class="content">
+					<navigator hover-class="none" url="../course/course">
+						<view class="kctitle oneline">{{item.name}}</view>
+						<view class="kctips twoline">{{item.desc}}</view>
+					</navigator>
+					<view class="flex align-center justify-between">
+						<view class="price"><text class="text-sm">￥</text>{{item.price}}</view>
+						<view class="btnbox"><button class="cu-btn round bg-red" bindtap="buy"  data-id="{{item.id}}">立即购买</button></view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+</view>

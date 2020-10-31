@@ -1,0 +1,75 @@
+<!--pages/applytx/applytx.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+	<view class="bg-white applybox">
+		<view class="zhmoney">账户可提现金额：{{ktx}}元</view>
+		<view class="txmoney flex text-xl align-end">
+			<text class="text-df">￥</text>
+			<input type="number" placeholder="输入提现金额" name='price'></input>
+		</view>
+	</view>
+
+	<view class="bg-white">
+		<view class="waytitle">提现方式</view>
+		<view class="applyways">
+			<view bindtap="navSwitch" data-index="0" class="apply {{navState==0 ? 'switch-on':''}}">
+				<image src="/images/tx_icon1.png"></image><text>微信</text>
+				<icon>
+					<image src="/images/txon.png"></image>
+				</icon>
+			</view>
+			<view bindtap="navSwitch" data-index="1" class="apply {{navState==1 ? 'switch-on':''}}">
+				<image src="/images/tx_icon2.png"></image><text>支付宝</text>
+				<icon>
+					<image src="/images/txon.png"></image>
+				</icon>
+			</view>
+			<view bindtap="navSwitch" data-index="2" class="apply {{navState==2 ? 'switch-on':''}}">
+				<image src="/images/tx_icon3.png"></image><text>银行卡</text>
+				<icon>
+					<image src="/images/txon.png"></image>
+				</icon>
+			</view>
+		</view>
+	</view>
+	<view class="bg-white">
+		<view class="waysbox">
+			<view wx:if="{{navState==0}}" class="style-default">
+				<!-- <view class="wayitem flex align-center">
+					<view class="text"><text class="must">*</text><text>姓名：</text></view>
+					<view class="account"><input placeholder="请输入姓名" name='uname'></input></view>
+				</view>
+				<view class="wayitem flex align-center">
+					<view class="text"><text class="must">*</text><text>账号：</text></view>
+					<view class="account"><input placeholder="请输入正确的微信账号" name='zhanghao'></input></view>
+				</view> -->
+				<view class="btn"><button class="cu-btn lg round" formType="submit">提交申请</button></view>
+			</view>
+			<view wx:elif="{{navState==1}}" class="style-default">
+				<view class="wayitem flex align-center">
+					<view class="text"><text class="must">*</text><text>姓名：</text></view>
+					<view class="account"><input placeholder="请输入姓名" name='uname'></input></view>
+				</view>
+				<view class="wayitem flex align-center">
+					<view class="text"><text class="must">*</text><text>账号：</text></view>
+					<view class="account"><input placeholder="请输入正确的支付宝账号" name='zhanghao'></input></view>
+				</view>
+				<view class="btn"><button class="cu-btn lg round" formType="submit">提交申请</button></view>
+			</view>
+			<view wx:elif="{{navState==2}}" class="style-default">
+				<view class="wayitem flex align-center">
+					<view class="text"><text class="must">*</text><text>姓名：</text></view>
+					<view class="account"><input placeholder="请输入姓名" name='uname'></input></view>
+				</view>
+				<view class="wayitem flex align-center">
+					<view class="text"><text class="must">*</text><text>开户行：</text></view>
+					<view class="account"><input placeholder="请输入正确的银行名称" name='bname'></input></view>
+				</view>
+				<view class="wayitem flex align-center">
+					<view class="text"><text class="must">*</text><text>银行卡：</text></view>
+					<view class="account"><input placeholder="请输入正确的银行卡账号" name='zhanghao'></input></view>
+				</view>
+				<view class="btn"><button class="cu-btn lg round" formType="submit">提交申请</button></view>
+			</view>
+		</view>
+	</view>
+</form>

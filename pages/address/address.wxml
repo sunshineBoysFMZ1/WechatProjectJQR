@@ -1,0 +1,27 @@
+<view wx:if='{{getlist!=""}}'>
+	<block wx:for='{{getlist}}' wx:key='index'>
+		<view class="addressbox">
+			<view class="address">
+				<view class="edit" bindtap="delete" data-id='{{item.id}}'><text class="cuIcon-close text-gray"></text></view>
+				<view class="ad_detail">
+					<view class="mineinfo"><text>{{item.name}}</text><text>{{item.phone}}</text></view>
+					<view class="mineadd"><text>{{item.province_id}}{{item.city_id}}{{item.region_id}}{{item.detail}}</text></view>
+				</view>
+			</view>
+			<view class="bottom flex justify-between align-center">
+				<view class="chk" bindtap="setdefault" data-id="{{item.id}}">
+					<checkbox class="cb round red margin-right-xs" checked="{{item.isdefault == 1 ?true:''}}"></checkbox>设为默认
+				</view>
+				<navigator hover-class="none" url="add?id={{item.id}}&status=1">
+					<text>编辑</text>
+				</navigator>
+			</view>
+		</view>
+	</block>
+</view>
+
+<view class="listbox text-center" wx:else>
+	<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+	<view>还没有添加收货地址~</view>
+</view>
+<view class="btnbox"><button class="cu-btn lg round" bindtap="addaddress">添加</button></view>

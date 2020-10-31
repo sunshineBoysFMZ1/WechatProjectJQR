@@ -1,0 +1,13 @@
+/* pages/course/orderinfo.wxss */
+@import "../orderinfo/orderinfo.wxss";
+.f-height{height:120rpx;}
+
+@import "../coupon/coupon.wxss";
+page{background-color:#eee;}
+/* .nav{position:fixed;top:0;z-index:999;background-color:#fff;border-bottom:solid 2rpx #ececec}
+.couponbox{padding-top:110rpx;}
+.nav .cu-item{padding:0 10rpx;margin:0 30rpx}
+.text-red,line-red{color:#FF000B;}
+.overdue{border-color:#BBBBBB;background-color:#F2F2F2;}
+.overdue .money{border-color:#BBBBBB}
+.overdue .intro{border-color:#BBBBBB} */

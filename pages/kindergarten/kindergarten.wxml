@@ -1,0 +1,103 @@
+<!--pages/kindergarten/kindergarten.wxml-->
+<view class="projectbox grid col-2">
+	<navigator class="pro-item flex justify-between" hover-class="none" url="../project/project?name=xmjs&title=项目介绍">
+		<view class="text-lg">项目介绍</view>
+		<view class="img">
+			<image src="/images/pro1.png"></image>
+		</view>
+	</navigator>
+	<navigator class="pro-item flex justify-between" hover-class="none" url="../project/project?name=kctx&title=产品介绍">
+		<view class="text-lg">产品介绍</view>
+		<view class="img">
+			<image src="/images/cp.png"></image>
+		</view>
+	</navigator>
+	<navigator class="pro-item flex justify-between" hover-class="none" url="../project/project?name=hzms&title=合作模式">
+		<view class="text-lg">合作模式</view>
+		<view class="img">
+			<image src="/images/pro3.png"></image>
+		</view>
+	</navigator>
+	<navigator class="pro-item flex justify-between" hover-class="none" url="../project/project?name=hzlc&title=合作流程">
+		<view class="text-lg">合作流程</view>
+		<view class="img">
+			<image src="/images/pro4.png"></image>
+		</view>
+	</navigator>
+</view>
+
+<!-- <view class="container">
+	<view class="cutitle cu-bar">
+		<view class="action" wx:if='{{is_show == 1}}'>幼儿园课程</view>
+		<view class="action" wx:else>合作模式</view>
+	</view>
+	<view class="listbox text-center" hidden="{{familyData!=''}}">
+		<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+		<view>暂无课程~</view>
+	</view>
+	<view class="" hidden="{{familyData ==''}}">
+		<view class="coursebox cu-list menu course-top">
+			<view class="cu-item">
+				<navigator class="img" hover-class="none" url="course?id={{familyData[0].id}}">
+					<image src="{{familyData[0].img}}" />
+				</navigator>
+				<view class="content margin-left-xs">
+					<navigator hover-class="none" url="course?id={{familyData[0].id}}">
+						<view class="kctitle oneline">{{familyData[0].name}}</view>
+						<view class="kctips twoline">{{familyData[0].desc}}</view> -->
+						<!-- <view class="price"><text class="text-sm">￥</text>{{familyData[0].price}}</view> -->
+						<!-- <view class="btnbox"><button class="cu-btn round bg-red" bindtap="buy" data-id="{{familyData[0].id}}">课程介绍</button></view>
+					</navigator>
+				</view>
+			</view>
+		</view>
+		<scroll-view scroll-x="true" class="coursebox cu-list menu" hidden="{{familyData ==''}}">
+			<block wx:for='{{familyData}}' wx:key='index'>
+				<view class="cu-item course-item">
+					<view class="flex">
+						<navigator class="img" hover-class="none" url=".course?id={{item.id}}">
+							<image src="{{item.img}}" />
+						</navigator>
+						<view class="content">
+							<navigator hover-class="none" url="course?id={{item.id}}">
+								<view class="kctitle oneline">{{item.name}}</view>
+								<view class="kctips huanhang">{{item.desc}}</view> -->
+								<!-- <view class="price"><text class="text-sm">￥</text>{{item.price}}</view> -->
+							<!-- </navigator>
+						</view>
+					</view>
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+</view> -->
+
+<view class="container">
+	<view class="cutitle cu-bar">
+		<view class="action" wx:if='{{is_show == 1}}'>幼儿园课程</view>
+		<view class="action" wx:else>合作模式</view>
+	</view>
+	<view class="listbox text-center" hidden="{{familyData!=''}}">
+		<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+		<view>暂无课程~</view>
+	</view>
+	<view class="coursebox cu-list menu">
+		<block wx:for='{{familyData}}' wx:key='index'>
+			<view class="cu-item">
+				<navigator class="img" hover-class="none" url="course?id={{item.id}}">
+					<image src="{{item.img}}" />
+				</navigator>
+				<view class="content" style="line-height:30rpx;">
+					<navigator hover-class="none" url="course?id={{item.id}}">
+						<view class="kctitle oneline">{{item.name}}</view>
+						<view class="kctips twoline" style="font-size:25rpx;">{{item.desc}}</view>
+					</navigator>
+					<!-- <view class="flex align-center justify-between"  > -->
+						<!-- <view class="price"><text class="text-sm">￥</text>{{item.price}}</view> -->
+						<view class="btnbox"><button class="cu-btn round bg-red" bindtap="buy" data-id='{{item.id}}'>课程介绍</button></view>
+					<!-- </view> -->
+				</view>
+			</view>
+		</block>
+	</view>
+</view>

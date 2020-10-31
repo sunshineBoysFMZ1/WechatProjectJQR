@@ -1,0 +1,50 @@
+<wxs module='Time' src="../mycoupon/time.wxs"></wxs>
+<view class="cu-bar bg-green">
+	<view class="action flex-sub">{{detail.name}}</view>
+	<navigator class="action flex align-center" hover-class="none" url="zuoye?id={{id}}&mid={{mid}}" wx:if='{{is_show == 1}}'>
+		<text class="cuIcon-camera margin-right-xs"></text><text>交作业</text>
+	</navigator>
+</view>
+<view class="bg-white">
+	<view class="video">
+		<video src="{{detail.video_path}}" object-fit="cover" wx:if='{{is_show == 1}}'></video>
+		<image src="/images/kc.jpg" wx:else style='text-align:center;width:100%;'></image>
+	</view>
+	<view class="video-intro">
+		<!-- <view class="text-black">{{}}</view> -->
+		<rich-text nodes="{{detail.content}}"></rich-text>
+	</view> 
+</view>
+<view class="padding bg-white margin-top-sm">
+	<view class="title">作业展示</view>
+	<view class="listbox text-center" hidden="{{showlist !=''}}">
+		<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+		<view>还没小朋友交作业,快成为第一个吧~</view>
+	</view>
+	<view class="zybox">
+		<block wx:for='{{showlist}}' wx:key='index'>
+			<view class="item">
+				<view class="userbox flex align-center">
+					<view class="userimg">
+						<image src="{{item.avatar}}"></image>
+					</view>
+					<view class="margin-left-sm flex-sub hidden">
+						<view class="oneline">{{item.nickname}}</view>
+						<view class="text-sm text-gray">{{Time.dataTime(item.createtime)}}</view>
+					</view>
+				</view>
+				<view class="margin-top-xs">
+					<view class="text-black">{{item.content}}</view>
+					<view class="videobox">
+						<video src="{{item.video_path}}" object-fit="cover"></video>
+					</view>
+				</view>
+				<view class="dpbox flex" wx:if='{{item.status == 2}}'>
+					<view>老师点评：</view>
+					<view class="flex-sub">{{item.comment}}</view>
+				</view>
+			</view>
+		</block>
+	</view>
+
+</view>

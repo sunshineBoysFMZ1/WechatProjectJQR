@@ -1,0 +1,22 @@
+<!--pages/mycourse/zuoye.wxml-->
+<view class="cu-form-group">
+	<view class="title">作业视频：</view>
+	<view class="flex-sub">
+		<view class="grid col-3 grid-square flex-sub">
+			<view class="bg-img" wx:if="{{videoList}}">
+				<video src="{{videoList}}" style="{{videoList?'width:100%;':''}}"></video>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{videoList==''}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="cu-form-group">
+	<view class="title">作业描述：</view>
+	<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="填写作业描述"></textarea>
+</view>
+<view class="btn padding margin-top-sm" bindtap="settask"><button class="cu-btn block lg round bg-green">提交作业</button></view>

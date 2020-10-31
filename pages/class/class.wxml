@@ -1,0 +1,40 @@
+<!--pages/class/class.wxml-->
+<view class="container">
+	<view class="cutitle cu-bar">
+		<view class="action">已绑定课程</view>
+	</view>
+	<view class="coursebox cu-list menu" wx:if='{{courseData!=""}}'>
+		<block wx:for='{{courseData}}' wx:key='index'>
+			<navigator class="cu-item" hover-class="none" url="../mycourse/mycourse?id={{item.id}}">
+				<view class="img">
+					<image src="{{item.img}}" />
+				</view>
+				<view class="flex-sub hidden">
+					<view class="kctitle oneline">{{item.name}}</view>
+					<view class="kctips huanhang">{{item.desc}}</view>
+					<view class="btnbox"><button class="cu-btn round">开始上课</button></view>
+				</view>
+			</navigator>
+		</block>
+	</view>
+	<view class="listbox text-center" wx:else>
+		<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+		<view>还没有绑定的课程~</view>
+	</view>
+</view>
+<view class="container bg-white">
+	<view class="cutitle cu-bar">
+		<view class="action">添加课程</view>
+	</view>
+	<view class="cu-list menu padding-top-xs padding-bottom">
+		<view class="cu-item">
+			<navigator class="add" hover-class="none" url="../addcourse/addcourse">
+				<text class="cuIcon-add"></text>
+			</navigator>
+			<view class="flex-sub hidden">
+				<view class="">请输入您购买课程时得到的课程码</view>
+				<view class="">即可绑定微信开始学习对应课程</view>
+			</view>
+		</view>
+	</view>
+</view>

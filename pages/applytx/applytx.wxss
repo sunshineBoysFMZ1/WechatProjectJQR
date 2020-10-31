@@ -1,0 +1,22 @@
+/* pages/applytx/applytx.wxss */
+page{background:#f7f7f7}
+.bg-white{padding:30rpx;margin-bottom:20rpx}
+.zhmoney{font-size:32rpx;color:#555;margin-bottom:30rpx}
+.txmoney{color:#FF000B;overflow:hidden}
+.txmoney text,.txmoney input{line-height:60rpx;height:60rpx;margin-right:8rpx}
+.applyways{overflow:hidden;display:flex;}
+.applyways .apply{width:135rpx;flex:1;border:solid 1rpx #6e6e6e;overflow:hidden;padding:20rpx 30rpx;margin:0 14rpx;position:relative}
+.applyways .apply text{font-size:28rpx;color:#555;line-height:40rpx;margin-left:10rpx;float:left}
+.applyways .apply icon{display:none}
+.applyways .apply image{width:40rpx;height:40rpx;float:left}
+.applyways .switch-on{border:solid 1rpx #FF000B;}
+.applyways .switch-on icon{display:block; position:absolute;bottom:0;right:0}
+.waytitle{font-size:32rpx;margin-bottom:30rpx}
+.wayitem{overflow:hidden;line-height:44rpx;margin-bottom:28rpx}
+.wayitem .text{font-size:32rpx;color:#666;margin-right:10rpx;}
+.wayitem .text .must{color:#FF000B;margin-right:8rpx}
+.wayitem .account{flex:1;}
+.wayitem .account input{line-height:44rpx;font-size:32rpx;color:#222}
+.wayitem:last-child{margin-bottom:0}
+.btn{margin-top:60rpx;}
+.cu-btn{background-color:#03CA83 !important;width:100%;color:#fff;}

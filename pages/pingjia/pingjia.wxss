@@ -1,0 +1,11 @@
+/* pages/refund/refund.wxss */
+@import "../refund/refund.wxss";
+.cu-form-group{min-height:80rpx}
+.cuicon text{color:#ff5001;font-size:48rpx;margin-right:20rpx}
+.cuIcon-favor{color:#999}
+.cu-form-group+.cu-form-group{border-top:0}
+.scorebox{padding:10rpx 0}
+.score{margin-left:10rpx;color:#ff5001;font-size:32rpx}
+.myorder{margin-bottom:0}
+.listbox{margin-bottom:120rpx}
+.radius{border-radius:10rpx;overflow:hidden}

@@ -1,0 +1,101 @@
+<wxs module='Time' src='../mycoupon/time.wxs'></wxs>
+<view class="banner">
+	<swiper class="screen-swiper" circular="true" autoplay="true" interval="5000" duration="500">
+		<swiper-item wx:for="{{courseData.img}}" wx:key='index'>
+			<navigator url="" hover-class="none">
+				<image src="{{item}}" mode="aspectFill"></image>
+			</navigator>
+		</swiper-item>
+	</swiper>
+</view>
+<view class="bg-white introbox">
+	<view class="flex justify-between align-centre">
+		<view class="kctitle flex-sub">{{courseData.name}}</view>
+		<view class="share" bindtap="showModal" data-target="share">
+			<image src="/images/share.png"></image>
+			<view class="f_item">分享</view>
+		</view>
+	</view>
+	<view class="kctips">{{courseData.desc}}</view>
+</view>
+<view class="bg-white">
+	<view></view>
+</view>
+
+<!-- 介绍导航 -->
+<view class="pagecontent bg-white">
+	<scroll-view scroll-x class="nav text-center {{ hideTop == true ? 'navbox' : 'disblock' }}">
+		<view class="cu-item {{0==TabCur?'cur':''}}" bindtap="tabSelect" data-id="0">上课视频 </view>
+		<view class="cu-item {{1==TabCur?'cur':''}}" bindtap="tabSelect" data-id="1">评论</view>
+		<!-- <view class="cu-item {{2==TabCur?'cur':''}}" bindtap="tabSelect" data-id="2">评论</view> -->
+	</scroll-view>
+	<swiper class="tab-content" current="{{TabCur}}" duration="300" bindchange="switchTab">
+		<!-- <swiper-item>
+			<scroll-view scroll-y class="contents">
+				<view class="cou-intro">
+					<import src="../../utils/wxParse/wxParse.wxml" />
+					<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+				</view>
+			</scroll-view>
+		</swiper-item> -->
+		<swiper-item>
+			<scroll-view scroll-y class="contents">
+				<block wx:for='{{courseData.detail}}' wx:key='index' wx:for-item='detail'>
+					<view class="catalogbox padding">
+						<text class="titles">{{detail.name}}</text>
+						<block wx:for='{{detail.catalog}}' wx:for-index='ii' wx:key='ii'>
+							<view class="cu-item flex align-center" bindtap="navigator" data-is_charge="{{item.is_charge}}" data-id="{{item.id}}" data-mid='{{detail.id}}'>
+								<view class="flex-sub">
+									<view class="title oneline">{{item.name}}</view>
+									<!-- <view class="time">10:55</view> -->
+								</view>
+								<view class="play text-center">
+									<image src="/images/play.png" wx:if='{{is_show == 1}}'></image>
+									<image src="/images/c5.png" wx:else></image>
+									<view class="text-yellow"></view>
+								</view>
+							</view>
+						</block>
+					</view>
+				</block>
+			</scroll-view>
+		</swiper-item>
+		<swiper-item>
+			<scroll-view scroll-y class="contents">
+				<view class="commentbox" wx:if='{{plistData!=""}}'>
+					<block wx:for='{{plistData}}' wx:key='index'>
+						<view class="cu-item flex">
+							<view class="userimg">
+								<image src="{{item.avatar}}"></image>
+							</view>
+							<view class="flex-sub">
+								<view class="username">{{item.nickname}}</view>
+								<view class="time">{{Time.dataTime(item.createtime)}}</view>
+								<view class="comment">{{item.content}}</view>
+							</view>
+						</view>
+					</block>
+				</view>
+				<view class="listbox text-center" wx:else>
+					<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+					<view>还没有评论~</view>
+				</view>
+			</scroll-view>
+		</swiper-item>
+	</swiper>
+</view>
+
+
+<!-- 分享  -->
+<view class="cu-modal {{modalName=='share'?'show':''}}">
+	<view class="cu-dialog bg-white">
+		<view class="close text-xl" bindtap="hideModal"><text class="cuIcon-close "></text></view>
+		<view class="sharebox">
+			<image src="{{goodsInfoImg}}"  mode="widthFix"></image>
+		</view>
+		<view class="cu-bar">
+			<view class="action cu-btn round" bindtap="shareUse">分享给好友</view>
+			<view class="action cu-btn round" bindtap="uploadimg">保存图片</view>
+		</view>
+	</view>
+</view>

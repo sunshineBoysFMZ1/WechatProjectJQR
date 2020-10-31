@@ -1,0 +1,104 @@
+<!--my.wxml-->
+<view class="userinfobox flex align-center">
+	<view class="userimg">
+		<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+	</view>
+	<view class="userinfo">
+		<view class="username twoline">{{userInfo.nickName}}</view>
+		<!-- <view class="userid">ID：</view> -->
+	</view>
+</view>
+<view class="myorder bg-white container">
+	<view class="allorder cu-bar solid-bottom">
+		<view class="action cu-title">我的订单</view>
+		<navigator class="action flex align-center" hover-class="none" url="../myorder/myorder?i=0">
+			<text class="text-df">全部订单</text><text class="cuIcon-right text-grey"></text>
+		</navigator>
+	</view>
+	<view class="cu-list grid col-5 no-border">
+		<view class="cu-item" bindtap="order" data-i='1'>
+			<view class="cu-img">
+				<image src="/images/i1.png"></image>
+			</view>
+			<text>待付款</text>
+		</view>
+		<view class="cu-item" bindtap="order" data-i='2'>
+			<view class="cu-img">
+				<image src="/images/i2.png"></image>
+			</view>
+			<text>待发货</text>
+		</view>
+		<view class="cu-item" bindtap="order" data-i='3'>
+			<view class="cu-img">
+				<image src="/images/i3.png"></image>
+			</view>
+			<text>待收货</text>
+		</view>
+		<view class="cu-item" bindtap="order" data-i='4'>
+			<view class="cu-img">
+				<image src="/images/i4.png"></image>
+			</view>
+			<text>待评价</text>
+		</view>
+		<view class="cu-item" bindtap="order" data-i='5'>
+			<view class="cu-img">
+				<image src="/images/i5.png"></image>
+			</view>
+			<text>退款/取消</text>
+		</view>
+	</view>
+</view>
+<view class="myorder bg-white container">
+	<view class="cu-list menu">
+		<navigator class="cu-item arrow" hover-class="none" url="../address/address">
+			<view class="content flex align-center">
+				<image src="/images/c1.png" class="png" mode="aspectFit"></image>
+				<text class="text-black">收货地址</text>
+			</view>
+		</navigator>
+		<navigator class="cu-item arrow" hover-class="none" url="../mycode/mycode">
+			<view class="content flex align-center">
+				<image src="/images/c10.png" class="png" mode="aspectFit"></image>
+				<text class="text-black">我的课程码</text>
+			</view>
+		</navigator>
+		<navigator class="cu-item arrow" hover-class="none" url="../fenxiao/fenxiao">
+			<view class="content flex align-center">
+				<image src="/images/c2.png" class="png" mode="aspectFit"></image>
+				<text class="text-black">我的分销</text>
+			</view>
+		</navigator>
+		<navigator class="cu-item arrow" hover-class="none" url="../mycoupon/mycoupon">
+			<view class="content flex align-center">
+				<image src="/images/c3.png" class="png" mode="aspectFit"></image>
+				<text class="text-black">我的优惠券</text>
+			</view>
+		</navigator>
+		<button class="cu-item arrow" open-type="contact">
+			<view class="content flex align-center">
+				<image src="/images/c4.png" class="png" mode="aspectFit"></image>
+				<text class="text-black">在线客服</text>
+			</view>
+		</button>
+	</view>
+</view>
+<view class="myorder bg-white container">
+	<view class="cu-list menu">
+		<navigator class="cu-item arrow" hover-class="none" url="../coupon/coupon">
+			<view class="content flex align-center">
+				<image src="/images/c9.png" class="png" mode="aspectFit"></image>
+				<text class="text-black">限时优惠</text>
+			</view>
+			<view class="action">去领取</view>
+		</navigator>
+	</view>
+</view>
+
+
+<!-- 登录授权 -->
+<view class="phone" hidden="{{is_login}}">
+	<view class="iphone">
+		<image src="{{logo}}"></image>
+		<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+	</view>
+</view>

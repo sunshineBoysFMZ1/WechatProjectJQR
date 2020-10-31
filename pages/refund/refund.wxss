@@ -1,0 +1,10 @@
+/* pages/refund/refund.wxss */
+@import "../myorder/myorder.wxss";
+.goodsimg image{width:140rpx;height:140rpx;}
+.money{font-size:34rpx;color:#FF4E2C}
+.cu-form-group{justify-content:flex-start}
+.margin-top{margin-top:24rpx}
+.btnbox{position:fixed;width:100%;bottom:0}
+.btnbox button{padding:0;height:90rpx;font-size:32rpx;color:#fff;background:#FF000B;border-radius:0;line-height:90rpx;text-align:center}
+.listbox{margin-bottom:100rpx}
+.cu-form-group textarea{font-size:32rpx}

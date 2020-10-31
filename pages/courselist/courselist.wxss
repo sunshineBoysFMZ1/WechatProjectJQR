@@ -1,0 +1,9 @@
+/* pages/courselist/courselist.wxss */
+@import "../index/index.wxss";
+.coursebox.cu-list.menu .cu-item{border:0;margin-bottom:24rpx;}
+.coursebox .btnbox{position:relative;bottom:0;}
+/* .coursebox{padding-bottom:14rpx;}
+.coursebox .img image{width:240rpx;height:180rpx;border-radius:8rpx;margin-right:20rpx;display:block;}
+.coursebox.cu-list.menu>.cu-item{justify-content:start;align-items:flex-start;padding:10rpx 30rpx}
+.coursebox .content{overflow:hidden;}
+.coursebox .kctitle{font-size:30rpx;font-weight:bold;} */

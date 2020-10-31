@@ -1,0 +1,8 @@
+<!--pages/addcourse/addcourse.wxml-->
+<form>
+	<view class="cu-form-group margin-top-sm">
+		<view class="title">课程码：</view>
+		<input placeholder="请输入课程码" bindinput="usetext"></input>
+	</view>
+  <view class="btnbox padding flex flex-direction" bindtap="bind"><button class="cu-btn lg round">绑定课程</button></view>
+</form>

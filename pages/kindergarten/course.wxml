@@ -1,0 +1,113 @@
+<wxs module='Time' src='../mycoupon/time.wxs'></wxs>
+<view class="banner">
+	<swiper class="screen-swiper"  circular="true" autoplay="true" interval="5000" duration="500">
+		<swiper-item wx:for="{{courseData.img}}" wx:key='index'>
+			<image src="{{item}}" mode="aspectFill" mode="widthFix"></image>
+		</swiper-item>
+	</swiper>
+</view>
+<view class="bg-white introbox">
+	<view class="flex justify-between align-centre">
+		<view class="kctitle flex-sub">{{courseData.name}}</view>
+		<!-- <view class="share" bindtap="showModal" data-target="share">
+			<image src="/images/share.png"></image>
+		</view> -->
+	</view>
+	<view class="kctips">{{courseData.desc}}</view>
+</view>
+<view class="bg-white">
+	<view></view>
+</view>
+<!-- 介绍导航 -->
+<view class="pagecontent bg-white">
+	<scroll-view scroll-x class="nav text-center {{ hideTop == true ? 'navbox' : 'disblock' }}">
+		<view class="cu-item {{0==TabCur?'cur':''}}" bindtap="tabSelect" data-id="0">介绍</view>
+		<view class="cu-item {{1==TabCur?'cur':''}}" bindtap="tabSelect" data-id="1">目录</view>
+	</scroll-view>
+
+	<view class="cou-intro" wx:if='{{0==TabCur}}'>
+		<import src="../../utils/wxParse/wxParse.wxml" />
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	</view>
+
+	<scroll-view scroll-y class="contents" wx:if='{{1==TabCur}}'>
+		<block wx:for='{{courseData.detail}}' wx:key='index' wx:for-item='detail'>
+			<view class="catalogbox padding">
+				<text class="titles">{{detail.name}}</text>
+				<block wx:for='{{detail.catalog}}' wx:for-index='ii' wx:key='ii'>
+					<view class="cu-item flex align-center" bindtap="navigator" data-is_charge="{{item.is_charge}}" data-id="{{item.id}}">
+						<view class="flex-sub">
+							<view class="title oneline">{{item.name}}</view>
+							<!-- <view class="time">10:55</view> -->
+						</view>
+						<view class="play text-center" wx:if='{{item.is_charge==2}}'>
+							<image src="/images/play-try.png" wx:if='{{is_show==1}}'></image>
+							<image src="/images/c5.png" wx:else></image>
+							<view class="text-yellow">免费试学</view>
+						</view>
+						<view class="play text-center" wx:else>
+							<image src="/images/play.png" wx:if='{{is_show == 1}}'></image>
+							<image src="/images/c5.png" wx:else></image>
+							<view class="text-yellow"></view>
+						</view>
+					</view>
+				</block>
+			</view>
+		</block>
+	</scroll-view>
+
+</view>
+
+<!-- 分享  -->
+<view class="cu-modal {{modalName=='share'?'show':''}}">
+	<view class="cu-dialog bg-white">
+		<view class="close text-xl" bindtap="hideModal"><text class="cuIcon-close "></text></view>
+		<view class="sharebox">
+			<view class="userbox flex align-center">
+				<image src="/images/user.jpg"></image>
+				<view class="name text-left">小年糕</view>
+				<view class="margin-left">分享给你</view>
+			</view>
+			<view class="padding-top goodsimg">
+				<view>
+					<image src="/images/kc.jpg"></image>
+				</view>
+				<view class="info flex align-center justify-between">
+					<view class="text-lg text-left">拼高高家庭课程P1创意篇</view>
+					<view class="margin-left text-lg text-red">￥1599.00</view>
+				</view>
+			</view>
+			<view class="codebox flex align-center justify-between">
+				<view>长按识别小程序码查看</view>
+				<image src="/images/code.png"></image>
+			</view>
+		</view>
+		<view class="cu-bar">
+			<view class="action cu-btn round" bindtap="hideModal">分享给好友</view>
+			<view class="action cu-btn round" bindtap="hideModal">保存图片</view>
+		</view>
+	</view>
+</view>
+
+<!-- 底部导航 -->
+<view class="height"></view>
+<view class="bottom flex bg-white justify-between align-center">
+	<view class="action grid col-3 align-center">
+		<navigator class="sub-item" hover-class="none" url="../index/index" open-type="switchTab">
+			<image src="/images/b1.png"></image>
+			<text>首页</text>
+		</navigator>
+		<button class="sub-item" open-type="contact">
+			<image src="/images/b2.png"></image>
+			<text>客服</text>
+		</button>
+		<view class="sub-item" bindtap="navigator">
+			<image src="/images/b3.png" wx:if='{{is_show==1}}'></image>
+			<image src="/images/pro2.png" wx:else></image>
+			<text>试学</text>
+		</view>
+	</view>
+	<view class="btnbox">
+		<button class="cu-btn lg" open-type="contact">购买咨询</button>
+	</view>
+</view>

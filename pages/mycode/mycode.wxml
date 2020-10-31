@@ -1,0 +1,36 @@
+<!--pages/mycode/mycode.wxml-->
+<wxs module='Time' src='../mycoupon/time.wxs'></wxs>
+<scroll-view scroll-x class="nav text-center bg-white" scroll-with-animation scroll-left="{{scrollLeft}}">
+	<view class="">
+		<view class="cu-item {{0==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="0">已购买课程</view>
+		<view class="cu-item {{1==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="1">已绑定课程</view>
+	</view>
+</scroll-view>
+
+<view class="coursebox cu-list menu" wx:if='{{DataDetail!=""}}'>
+	<block wx:for='{{DataDetail}}' wx:key='index'>
+		<view class="cu-item" style="line-height:{{TabCur ==1 ? 70:40}}rpx;">
+			<view class="img">
+				<image src="{{item.course.img}}" />
+			</view>
+			<view class="flex-sub hidden">
+				<view class="kctitle oneline">{{item.course.name}}</view>
+				<view class="kctips twoline">{{item.course.desc}}</view>
+				<view class="code  align-center">
+					<view>课程码：</view>
+					<view wx:for='{{item.code}}' style="position:relative;line-height:2" wx:for-item='items' wx:key='index' bindtap="setClipboardData" data-code='{{items}}'>
+						{{items}}
+						<span>复制</span>
+					</view>
+				</view>
+				<view style="position:absolute;top:60%;left:2%;font-size:27rpx;" wx:if='{{item.out_time}}'>到期时间：{{Time.dataTime(item.out_time)}}</view>
+				<button style="position:absolute;top:77%;left:2%" bindtap="payxf" data-id='{{item.course_id}}' data-code="{{item.code[0]}}" class="cu-btn round line-red">课程续费</button>
+			</view>
+		</view>
+	</block>
+</view>
+
+<view class="listbox text-center" style="margin-top:5%" wx:else>
+	<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+	<view>暂时是空的~</view>
+</view>

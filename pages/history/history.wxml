@@ -1,0 +1,24 @@
+ <view class="flex solid-bottom align-start justify-between" style="flex-wrap: wrap;padding:10rpx;">
+ 	<block wx:for='{{noticeData}}' wx:key='index'>
+ 		<!-- <view class="bg-grey margin-xs radius padding-sm view"> -->
+ 		<view class="cu-card case {{isCard?'no-card':''}} view" bindtap="liveVideo" data-id="{{item.roomid}}">
+ 			<view class="cu-item shadow">
+ 				<view class="image" style="height:360rpx;overflow:hidden">
+ 					<image src="{{item.share_img}}" mode="widthFix" ></image>
+ 					<!-- <view class="cu-tag bg-blue">史诗</view> -->
+ 					<view class="cu-bar bg-shadeBottom">
+ 						<text class="text-cut">{{item.name}}</text>
+ 					</view>
+ 				</view>
+ 			</view>
+			<!-- {{getTime}} -->
+ 			<view class='title bg-shadeBottom'>
+ 				<text wx:if='{{item.start_time <= getTime && item.end_time > getTime }}'>直播中</text>
+ 				<text wx:elif='{{getTime < item.start_time}}'>未开始</text>
+ 				<text wx:elif='{{item.end_time < getTime}}'>已结束</text>
+ 			</view>
+ 		</view>
+ 		<!-- </view> -->
+ 	</block>
+ 	<!-- <view class="bg-grey  margin-xs radius">start</view> -->
+ </view>

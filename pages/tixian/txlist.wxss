@@ -1,0 +1,3 @@
+/* pages/tixian/txlist.wxss */
+@import "../myorder/myorder.wxss";
+.content{font-size:32rpx}

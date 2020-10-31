@@ -1,0 +1,16 @@
+/* pages/shixue/shixue.wxss */
+.nav{padding:20rpx 0}
+.nav image{width:66rpx;}
+.nav .cu-item{border:solid 2rpx #BBBBBB;color:#333;border-radius:200rpx;line-height:70rpx;height:70rpx;}
+.nav .cu-item.img{border:none;padding:0}
+.nav .cu-item.bg-green{background-color:#03CA83;color:#fff;border-color:#03CA83;}
+.pagecontent{height:calc(100vh - 230rpx)}
+.videobox{padding:0 30rpx;margin-bottom:20rpx;}
+.video video{width:100%;}
+.video-intro{padding:20rpx 0}
+.video-intro view:first-child{font-size:30rpx;line-height:1;}
+.introimg image{width:100%;display:block;}
+.course-intro .title{font-weight:bold;color:#333;padding:20rpx 0}
+.footer{position:fixed;bottom:0;height:120rpx;box-sizing:border-box;border-top:solid 2rpx #e1e1e1;background-color:#fff;padding:0 30rpx;width:100%;display:flex;align-items:center;}
+.footer .cu-btn{width:100%;}
+.bg-red{background:#FF000B}

@@ -1,0 +1,84 @@
+<!--pages/myorder/myorder.wxml-->
+<view class="cu-bar bg-white search">
+	<view class="search-form round">
+		<text class="cuIcon-search"></text>
+		<input type="text" placeholder="搜索订单" confirm-type="search" bindinput="userHave" value="{{value}}"></input>
+	</view>
+</view>
+<scroll-view scroll-x class="nav bg-white" scroll-with-animation scroll-left="{{scrollLeft}}">
+	<view class="">
+		<view class="cu-item {{0==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="0"><text>全部</text></view>
+		<view class="cu-item {{1==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="1"><text>待付款</text></view>
+		<view class="cu-item {{2==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="2"><text>待发货</text></view>
+		<view class="cu-item {{3==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="3"><text>待收货</text></view>
+		<view class="cu-item {{4==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="4"><text>待评价</text></view>
+		<view class="cu-item {{5==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="5"><text>退款</text></view>
+	</view>
+</scroll-view>
+<view class="order-list" wx:if='{{orderData!=""}}'>
+	<!-- 订单开始 -->
+	<block wx:for='{{orderData}}' wx:key='index' wx:for-item='order'>
+		<view class="cu-list menu">
+			<view class="flex justify-between align-center margin-bottom">
+				<view class="text-gray text-sm">订单编号：{{order.order_no}}</view>
+				<view class="state text-red" wx:if='{{order.pay_status == 1}}'>待付款</view>
+				<view class="state text-red" wx:elif='{{order.freight_status == 1 && order.refund_status== 1}}'>待发货</view>
+				<view class="state text-red" wx:elif='{{order.freight_status == 2 &&  order.receipt_status == 1}}'>待收货</view>
+				<view class="state text-red" wx:elif='{{order.receipt_status == 2 && order.refund_status== 1}}'>待评价</view>
+				<view class="state text-red" wx:elif='{{order.refund_status== 2}}'>申请中</view>
+				<view class="state text-red" wx:elif='{{order.refund_status== 3}}'>待退款</view>
+				<view class="state text-red" wx:elif='{{order.refund_status== 4}}'>已退款</view>
+				<view class="state text-red" wx:elif='{{order.refund_status== 5}}'>拒绝退款</view>
+			</view>
+			<block wx:for='{{order.course}}' wx:key='index'>
+				<navigator class="cu-item goodsinfo" hover-class="none" url="../orderinfo/orderinfo?id={{order.id}}&desc=0" wx:if='{{TabCur!=4}}'>
+					<view class="goodsimg">
+						<image src="{{item.image}}"></image>
+					</view>
+					<view class="contents flex flex-sub">
+						<view class="">
+							<view class="goodsname twolines flex-sub">{{item.name}}</view>
+							<view class="kctips text-sm padding-top-xs twoline">{{item.desc}}</view>
+						</view>
+						<view class="text-right margin-left-sm">
+							<view class="price text-lg"><text class="text-sm">￥</text><text>{{item.total_price}}</text></view>
+							<view class="goodsnum text-gray">x{{item.total_num}}</view>
+						</view>
+					</view>
+				</navigator>
+			</block>
+			<view wx:if='{{TabCur==4}}'>
+				<navigator class="cu-item goodsinfo flex" hover-class="none" url="../orderinfo/orderinfo?id={{order.order_id}}&desc=1">
+					<view class="goodsimg">
+						<image src="{{order.image}}"></image>
+					</view>
+					<view class="contents flex flex-sub">
+						<view class="">
+							<view class="goodsname twolines flex-sub">{{order.name}}</view>
+							<view class="kctips text-sm padding-top-xs twoline">{{order.desc}}</view>
+						</view>
+						<view class="text-right margin-left-sm">
+							<view class="price text-lg"><text class="text-sm">￥</text><text>{{order.total_price}}</text></view>
+							<view class="goodsnum text-gray">x{{order.total_num}}</view>
+						</view>
+					</view>
+				</navigator>
+			</view>
+			<view class="sum text-right" wx:if='{{TabCur!=4}}'><text>合计：￥</text><text class="text-xl">{{order.pay_price}}</text></view>
+			<view class="sum text-right" wx:else><text>合计：￥</text><text class="text-xl">{{order.total_price}}</text></view>
+			<view class="btn text-right">
+				<button class="cu-btn round line-gray" wx:if='{{order.pay_status == 1}}' bindtap="havecancel" data-id="{{order.id}}">取消订单</button>
+				<button class="cu-btn round line-red" wx:if='{{order.pay_status == 1}}' bindtap="Payment" data-id="{{order.id}}">立即支付</button>
+				<button class="cu-btn round line-red" wx:elif='{{(order.pay_status == 2 && order.refund_status == 1) && order.order_status!=3 }}' bindtap="tuikuan" data-id="{{order.id}}">退款</button>
+				<button class="cu-btn round line-red" wx:elif='{{(order.pay_status == 2 && order.refund_status == 4 )}}' >已退款</button>
+				<button class="cu-btn round line-red" wx:if='{{order.freight_status == 2 && order.receipt_status == 1}}' bindtap="complete" data-id="{{order.id}}">确认收货</button>
+				<button class="cu-btn round line-red" bindtap="pingjia" data-index='{{index}}' wx:elif='{{TabCur==4}}'>评价</button>
+			</view>
+		</view>
+	</block>
+	<!-- 订单结束 -->
+</view>
+<view class="listbox text-center" style="margin-top:20%;" hidden="{{orderData!=''}}">
+	<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+	<view>没有相关的订单~</view>
+</view>

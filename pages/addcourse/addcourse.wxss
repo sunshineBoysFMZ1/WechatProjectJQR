@@ -1,0 +1,4 @@
+/* pages/addcourse/addcourse.wxss */
+@import "../class/class.wxss";
+page{background-color:#fff;}
+.cu-form-group input {padding:10rpx 20rpx;border:solid 2rpx #CECECE;border-radius:8rpx;font-size:30rpx;height:68rpx;}

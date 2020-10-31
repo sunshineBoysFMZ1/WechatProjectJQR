@@ -1,0 +1,10 @@
+/* pages/fx_order/fx_order.wxss */
+@import "../myorder/myorder.wxss";
+.fx_order{background:#fff;}
+.team image{margin-right:10rpx;width:64rpx;height:64rpx;border-radius:7rpx;float:left}
+/* .myorderbox{padding:30rpx 0 0} */
+.cu-list.menu>.cu-item{padding:24rpx}
+.team{width:25%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:64rpx}
+.fx-info{font-size:26rpx;color:#777;width:40%}
+.fx-money{font-size:26rpx}
+.fx-money text{font-size:32rpx;color:#FF000B}

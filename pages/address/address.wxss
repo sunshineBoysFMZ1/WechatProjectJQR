@@ -1,0 +1,16 @@
+/* pages/address/address.wxss */
+.addressbox{padding:0 30rpx;background:#fff;margin-bottom:30rpx}
+.address{padding:20rpx 0;border-bottom:solid 2rpx #eee;overflow:hidden}
+.address:last-child{border:0}
+.mineinfo text{font-size:32rpx;margin-right:20rpx;line-height:1.5}
+.mineadd{font-size:28rpx;color:#666;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ad_detail{float:left;width:90%}
+.edit{float:right}
+.edit image{width:40rpx;height:40rpx;margin-top:26rpx}
+.bottom{padding:12rpx 0;}
+.btnbox{width:100%;box-sizing:border-box;overflow:hidden;padding:30rpx 20rpx;position:fixed;bottom:0}
+.btnbox .cu-btn{font-size:32rpx;width:100%;background-color:#03CA83;color:#fff;}
+.cb{transform:scale(0.7,0.7);}
+.cu-dialog{overflow:hidden;}
+.cubtn-box{height:100rpx;line-height:100rpx;}
+.cubtn-box .action:first-child{border-right:solid 1rpx #ececec}

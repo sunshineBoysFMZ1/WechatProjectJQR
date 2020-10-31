@@ -1,0 +1,13 @@
+/* pages/myorder/myorder.wxss */
+@import "../cart/cart.wxss";
+.nav{border-bottom:solid 2rpx #ececec}
+.nav .cu-item{margin:0 30rpx;padding:0 10rpx}
+.pagecontent{height:calc(100vh - 192rpx)}
+.order-list{padding-top:20rpx;}
+.cu-list.menu .cu-item{margin:0;border-radius:0;}
+.order-list .cu-list{margin:0 20rpx 20rpx;border-radius:12rpx;background:#fff;padding:20rpx}
+.cu-list.menu .cu-item.goodsinfo{padding:0;justify-content:start;align-items:flex-start;padding-bottom: 10rpx;}
+.sum{margin:10rpx 0 24rpx}
+.btn .cu-btn{margin-left:24rpx;min-width:180rpx;box-sizing:border-box;}
+.line-gray{color:#666;}
+.line-red{color:#FF000B;}

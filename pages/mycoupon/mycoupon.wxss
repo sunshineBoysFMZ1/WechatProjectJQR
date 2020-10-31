@@ -1,0 +1,9 @@
+/* pages/mycoupon/mycoupon.wxss */
+@import "../coupon/coupon.wxss";
+.nav{position:fixed;top:0;z-index:999;background-color:#fff;border-bottom:solid 2rpx #ececec}
+.couponbox{padding-top:110rpx;}
+.nav .cu-item{padding:0 10rpx;margin:0 30rpx}
+.text-red,line-red{color:#FF000B;}
+.overdue{border-color:#BBBBBB;background-color:#F2F2F2;}
+.overdue .money{border-color:#BBBBBB}
+.overdue .intro{border-color:#BBBBBB}

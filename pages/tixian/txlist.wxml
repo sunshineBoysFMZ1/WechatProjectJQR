@@ -1,0 +1,29 @@
+<wxs module='Time' src='../mycoupon/time.wxs'></wxs>
+<scroll-view scroll-x class="nav bg-white" scroll-with-animation scroll-left="{{scrollLeft}}">
+	<view class="flex text-center">
+		<view class="cu-item flex-sub {{0==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="0"><text>全部</text></view>
+		<view class="cu-item flex-sub {{1==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="1"><text>待审核</text></view>
+		<view class="cu-item flex-sub {{2==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="2"><text>已打款</text></view>
+		<view class="cu-item flex-sub {{3==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="3"><text>驳回</text></view>
+	</view>
+</scroll-view>
+
+<view class="cu-list menu">
+	<block wx:for='{{listData}}' wx:key='index'>
+		<view class="cu-item">
+			<view class="content flex">
+				<view class="title">金额：</view>
+				<view>￥{{item.price}}</view>
+				<span wx:if='{{item.type==1}}'>(微信)</span>
+				<span wx:if='{{item.type==2}}'>(支付宝)</span>
+				<span wx:if='{{item.type==3}}'>(银行卡)</span>
+			</view>
+			<view class="action text-gray">{{Time.dataTime(item.createtime)}}</view>
+		</view>
+	</block>
+</view>
+
+<view class="listbox text-center" style="margin-top:20%;" hidden="{{listData!=''}}">
+	<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+	<view>没有相关的信息~</view>
+</view>

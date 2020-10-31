@@ -1,0 +1,35 @@
+<!--pages/about/about.wxml-->
+<import src="../../utils/wxParse/wxParse.wxml" />
+<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+<!-- <view class="container padding gushi">
+  <view class="cu-title"><text>品牌故事</text></view>
+  <view>新型冠状病毒疫情期间，公司负责人徐老师以自愿者身份参加雷神山医院项目建设，不辞辛劳，日夜奋战15天，最后建设完成后胜利归来。</view>
+  <view class="gushi">
+    <swiper class="screen-swiper" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <swiper-item wx:for="{{swiperList}}" wx:key>
+        <image src="{{item.url}}" mode="widthFix" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </swiper-item>
+  </swiper>
+  </view>
+</view>
+<view class="container padding">
+  <view class="cu-title"><text>公司荣誉</text></view>
+  <view class="honor grid col-3">
+    <view><image src="/images/honor1.jpg" mode="widthFix"></image></view>
+    <view><image src="/images/honor2.jpg" mode="widthFix"></image></view>
+    <view><image src="/images/honor3.jpg" mode="widthFix"></image></view>
+    <view><image src="/images/honor4.jpg" mode="widthFix"></image></view>
+    <view><image src="/images/honor5.jpg" mode="widthFix"></image></view>
+    <view><image src="/images/honor6.jpg" mode="widthFix"></image></view>
+  </view>
+</view>
+<view class="container padding">
+  <view class="cu-title"><text>资质认证</text></view>
+  <view class="honor grid col-2">
+    <view><image src="/images/zz1.jpg" mode="widthFix"></image></view>
+    <view><image src="/images/zz2.jpg" mode="widthFix"></image></view>
+    <view><image src="/images/zz3.jpg" mode="widthFix"></image></view>
+    <view><image src="/images/zz4.jpg" mode="widthFix"></image></view>
+  </view>
+</view> -->

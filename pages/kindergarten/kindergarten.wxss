@@ -1,0 +1,14 @@
+/* pages/kindergarten/kindergarten.wxss */
+@import "../index/index.wxss";
+.projectbox{margin:0 12rpx}
+.grid.col-2 .pro-item{width:48%;margin:20rpx 1% 0}
+.pro-item{background-color:#fff;border-radius:14rpx;height:160rpx;overflow:hidden;color:#fff;box-sizing:border-box}
+.pro-item image{width:140rpx;height:140rpx;margin-top:20rpx;}
+.pro-item:first-child{background-color:#50B8FA;}
+.pro-item:nth-child(2){background-color:#FF9751;}
+.pro-item:nth-child(3){background-color:#FED233;}
+.pro-item:last-child{background-color:#1CCB90;}
+.pro-item view:first-child{margin-top:24rpx;margin-left:24rpx;}
+.coursebox.cu-list.menu .cu-item{border:0;margin-bottom:24rpx;}
+.coursebox .btnbox{position:relative;bottom:0;}
+

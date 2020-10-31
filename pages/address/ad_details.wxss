@@ -1,0 +1,2 @@
+/* pages/address/ad_details.wxss */
+@import "/pages/address/add.wxss"

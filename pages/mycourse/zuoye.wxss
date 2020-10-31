@@ -1,0 +1,16 @@
+/* pages/mycourse/zuoye.wxss */
+.cu-form-group{align-items:flex-start;padding:20rpx 30rpx}
+.cu-form-group:first-child{padding-bottom:0;}
+.cu-form-group textarea{padding:16rpx;margin:0;border:solid 4rpx #ededed;border-radius:8rpx;font-size:30rpx;}
+
+video {
+    width: 300px;
+    height: 70px;
+    display: inline-block;
+    line-height: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    
+    }
+    

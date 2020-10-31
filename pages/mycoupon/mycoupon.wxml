@@ -1,0 +1,38 @@
+<!--pages/mycoupon/mycoupon.wxml-->
+<wxs module='Time' src='time.wxs'></wxs>
+<scroll-view scroll-x class="nav text-center solid-bottom">
+	<view class="cu-item {{0==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="0">未使用</view>
+	<view class="cu-item {{1==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="1">已用</view>
+	<view class="cu-item {{2==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="2">已过期</view>
+</scroll-view>
+
+<view class="couponbox" wx:if='{{couponData!=""}}'>
+	<block wx:for='{{couponData}}' wx:key='index'>
+		<view class="coupon" style="{{TabCur==0 ? 'background-color:#F3D4D4':'background-color:#eee'}}">
+			<view class="topbox flex align-center">
+				<view class="money text-center">
+					<view class="flex justify-center align-center"><text>￥</text><text class="price">{{item.money}}</text></view>
+					<view>满￥{{item.fullmoney}}使用</view>
+				</view>
+				<view class="getbox flex-sub">
+					<view class="flex align-center">
+						<view class="tips" wx:if='{{item.stypestatus == 1 }}'>满减券</view>
+						<view class="tips" wx:else>代金券</view>
+						<view>{{item.title}}</view>
+					</view>
+					<view class="flex justify-between align-center padding-top-sm">
+						<view class="text-sm text-gray">有限期至：{{Time.dataTime(item.endtime)}}</view>
+						<view class="btnbox" wx:if='{{TabCur == 0}}'><button class="cu-btn round bg-red">立即使用</button></view>
+					</view>
+				</view>
+			</view>
+			<view class="intro">{{item.remark}}</view>
+		</view>
+	</block>
+</view>
+
+
+<view class="listbox text-center" style="margin-top:20%;" hidden="{{couponData!=''}}">
+	<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+	<view>没有相关的优惠券~</view>
+</view>

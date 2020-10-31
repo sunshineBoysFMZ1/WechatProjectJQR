@@ -1,0 +1,41 @@
+<!--pages/coupon/coupon.wxml-->
+<wxs module='Time' src='../mycoupon/time.wxs'></wxs>
+<view class="couponbox" wx:if='{{couponData!=""}}'>
+	<block wx:for='{{couponData}}' wx:key='index'>
+		<view class="coupon">
+			<view class="topbox flex align-center">
+				<view class="money text-center">
+					<view class="flex justify-center align-center"><text>￥</text><text class="price">{{item.money}}</text></view>
+					<view>满￥{{item.fullmoney}}使用</view>
+				</view>
+				<view class="getbox flex-sub">
+					<view class="flex align-center">
+						<view class="tips" wx:if='{{item.stypestatus == 1}}'>满减券</view>
+						<view class="tips" wx:else>代金券</view>
+						<view>{{item.title}}</view>
+					</view>
+					<view class="flex justify-between align-center padding-top-sm">
+						<view class="text-sm text-gray">有限期至：{{Time.dataTime(item.endtime)}}</view>
+						<view class="btnbox"><button class="cu-btn round bg-red" bindtap="getcoupon" data-id='{{item.id}}'>立即领取</button></view>
+					</view>
+				</view>
+			</view>
+			<view class="intro">{{item.remark}}</view>
+		</view>
+	</block>
+</view>
+
+
+<view class="listbox text-center" style="margin-top:20%;" hidden="{{couponData!=''}}">
+	<image class="empty" src="/images/yhq.png" mode="widthFix"></image>
+	<view>没有可领取的优惠券~</view>
+</view>
+
+
+<!-- 登录授权 -->
+<view class="phone" hidden="{{is_login}}">
+	<view class="iphone">
+		<image src="{{logo}}"></image>
+		<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+	</view>
+</view>

@@ -1,0 +1,37 @@
+<wxs module='Time' src='../mycoupon/time.wxs'></wxs>
+<scroll-view scroll-x class="nav bg-white text-center" scroll-with-animation scroll-left="{{scrollLeft}}">
+	<view class="cu-item {{0==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="0">
+		<text>成功订单</text>
+	</view>
+	<view class="cu-item {{1==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="1">
+		<text>在路上</text>
+	</view>
+	<view class="cu-item {{2==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="2">
+		<text>失败订单</text>
+	</view>
+</scroll-view>
+
+
+<view class="myorderbox">
+	<view class="cu-list menu fx_order">
+		<block wx:for='{{orderData}}' wx:key='index'>
+			<view class="cu-item">
+				<view class="team">
+					<image src="{{item.avatar}}" /><text>{{item.nickname}}</text></view>
+				<view class="fx-info action">
+					<view>订单额：￥{{Time.dataTime(item.pay_price)}}</view>
+					<view>下单时间：{{Time.dataTime(item.createtime)}}</view>
+				</view>
+				<view class="fx-money action">
+					<view>佣金：<text>{{item.yongjin}}</text></view>
+				</view>
+			</view>
+		</block>
+	</view>
+</view>
+
+
+<view class="listbox text-center" style="margin-top:20%;" hidden="{{orderData!=''}}">
+	<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+	<view>没有相关的信息~</view>
+</view>

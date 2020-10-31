@@ -1,0 +1,105 @@
+<!--pages/index/index.wxml-->
+<view class="banner">
+	<swiper class="screen-swiper" circular="true" autoplay="true" interval="5000" duration="500">
+		<swiper-item wx:for="{{swiperList}}" wx:key='index' bindtap="videoinfo" data-id='{{item.opus_id}}'>
+			<!-- <navigator url="/pages/videolist/videoinfo?id={{item.opus_id}}" hover-class="none"> -->
+			<image src="{{item.image}}"></image>
+			<!-- </navigator> -->
+		</swiper-item>
+	</swiper>
+</view>
+
+<view class="minswiper container disnone">
+	<swiper class="screen-swiper" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+		<swiper-item wx:for="{{swiperList}}" wx:key='index'>
+			<navigator url="" hover-class="none">
+				<image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+			</navigator>
+			<video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+		</swiper-item>
+	</swiper>
+</view>
+
+<view class="container" hidden="{{noticeData == '' || is_show == 2}}">
+	<view class="cutitle cu-bar">
+		<view class="action">热门直播</view>
+		<view class="action" bindtap="history">
+			更多
+			<text class="cuIcon-right lg text-gray"></text>
+		</view>
+	</view>
+	<view class="cu-card case {{isCard?'no-card':''}}">
+		<view class="cu-item shadow">
+			<view class="image" style="height:115px;overflow:hidden;position:relative">
+				<image src="{{noticeData[0].share_img}}" mode="widthFix" bindtap="liveVideo" data-id="{{noticeData[0].roomid}}"></image>
+				<view class="cu-bar bg-shadeBottom">
+					<text class="text-cut">{{noticeData[0].name}}</text>
+				</view>
+				<view class='titles bg-shadeBottom'>
+					<text wx:if='{{noticeData[0].start_time <= getTime && noticeData[0].end_time > getTime }}'>直播中</text>
+					<text wx:elif='{{getTime < noticeData[0].start_time}}'>未开始</text>
+					<text wx:elif='{{noticeData[0].end_time < getTime}}'>已结束</text>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+<view class="container">
+	<view class="cutitle cu-bar">
+		<view class="action" wx:if='{{is_show == 1}}'>家庭课程</view>
+		<view class="action" wx:else>家庭商品</view>
+	</view>
+	<view class="listbox text-center" hidden="{{familyData!=''}}">
+		<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+		<view>暂无课程~</view>
+	</view>
+	<view class="">
+		<view class="coursebox cu-list menu course-top" style="height:308rpx;">
+			<swiper autoplay="{{true}}" circular="true" interval="{{5000}}" style="height:101%">
+				<block wx:for="{{aloneData}}" wx:key="*this">
+					<swiper-item>
+						<view class="cu-item flex">
+							<navigator class="img" hover-class="none" url="../course/course?id={{item.id}}&name={{item.name}}">
+								<image src="{{item.img}}" />
+							</navigator>
+							<view class="content margin-left-xs">
+								<navigator hover-class="none" url="../course/course?id={{item.id}}&name={{item.name}}">
+									<view class="kctitle oneline">{{item.name}}</view>
+									<view class="kctips twoline">{{item.desc}}</view>
+									<view class="price"><text class="text-sm">￥</text>{{item.price}}</view>
+								</navigator>
+								<view class="btnbox" wx:if='{{is_login}}'><button class="cu-btn round bg-red" bindtap="buy" data-id="{{item.id}}">立即购买</button></view>
+								<view class="btnbox" wx:else><button class="cu-btn round bg-red" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">立即购买</button></view>
+							</view>
+						</view>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+		<scroll-view scroll-x="true" class="coursebox cu-list menu">
+			<block wx:for='{{groupData}}' wx:key='index'>
+				<view class="cu-item course-item">
+					<view class="flex">
+						<navigator class="img" hover-class="none" url="../course/course?id={{item.id}}&name={{item.name}}">
+							<image src="{{item.img}}" />
+						</navigator>
+						<view class="content">
+							<navigator hover-class="none" url="../course/course?id={{item.id}}&name={{item.name}}">
+								<view class="kctitle oneline">{{item.name}}</view>
+								<view class="kctips huanhang">{{item.desc}}</view>
+								<view class="price"><text class="text-sm">￥</text>{{item.price}}</view>
+							</navigator>
+						</view>
+					</view>
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+</view>
+<view hidden="{{coupon}}">
+	<view class="coupons">
+		<image src="/images/coupon.png" class="cpimg" bindtap="navigator" mode="widthFix"></image>
+		<image src="/images/close.png" class="close" bindtap="closeCoupon"></image>
+	</view>
+</view>

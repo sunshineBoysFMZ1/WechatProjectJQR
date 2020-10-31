@@ -1,0 +1,69 @@
+/* pages/index/index.wxss */
+.disnone{display:none;}
+.radius{border-radius:8rpx;overflow:hidden}
+.screen-swiper{min-height:360rpx;overflow:hidden}
+swiper-item navigator{display:inline}
+.minswiper .screen-swiper{min-height:320rpx}
+.container{background-color:#fff;border-radius:14rpx;overflow:hidden;margin:24rpx 20rpx;}
+.grid.col-4 .cu-item{width:25%}
+.listmenu image{width:96rpx;height:96rpx}
+.listmenu.cu-list.grid .cu-item text{font-size:24rpx;color:#555;margin-top:0}
+.listmenu.cu-list.grid.no-border{padding:20rpx}
+.listmenu.cu-list.grid.no-border>.cu-item {padding:10rpx 0}
+.getcoupon{margin:24rpx 20rpx;border-radius:1000rpx;overflow:hidden;}
+.getcoupon image{width:100%;display:block;}
+.cutitle.cu-bar{min-height:76rpx;padding-top:24rpx;padding-bottom:10rpx;}
+.cutitle.cu-bar .action:first-child{font-size:34rpx;font-weight:bold;}
+.zhibo image{width:100%;display:inline-block;border-radius:10rpx;}
+.zhibo{padding:0 20rpx 14rpx;}
+.zhibo .flex-sub{margin:10rpx;}
+.coursebox{padding:10rpx 30rpx}
+.coursebox .img image{width:240rpx;height:180rpx;border-radius:6rpx;margin-right:20rpx;display:block;}
+.coursebox.cu-list.menu .cu-item{justify-content:start;align-items:flex-start;border:solid 2rpx #03CA83;overflow:hidden;border-radius:8rpx;padding:0}
+.coursebox .content{overflow:hidden;}
+.coursebox .kctitle{font-size:30rpx;font-weight:bold;margin-top:10rpx;}
+.kctips{font-size:28rpx;color:#999;margin-bottom:20rpx;line-height:1.4;}
+.bg-red{background:#FF000B}
+.coursebox .price{font-size:36rpx;color:#FF000B;line-height:1;font-weight:blod;}
+.coursebox.cu-list.menu>.cu-item:after{height:0;border:0;}
+.coursebox .btnbox{position:absolute;bottom:12px;}
+.coursebox+.cutitle.cu-bar{padding-top:0;}
+.cu-list+.cu-list{overflow:hidden;white-space:nowrap;margin:10rpx 0;}
+.course-top .img image{width:380rpx;height:280rpx;}
+.course-item{width:460rpx;overflow:hidden;display:inline-block;margin-right:30rpx;position:relative;margin-bottom:10rpx;}
+::-webkit-scrollbar {width: 0;height: 0;color: transparent;}
+
+.coupons{
+    position:fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(52, 52, 52, 0.6);
+    text-align: center;
+}
+.coupons .cpimg{
+    top: 25%;
+}
+.close{
+    width: 50rpx;
+    height: 50rpx;
+    top: 25%;
+    right: 10%;
+    position: absolute;
+}
+
+
+.titles{
+    position: absolute;
+    top: 0px;
+    left: 2%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 1));
+    width: 80rpx;
+    height: 40rpx;
+    font-size: 25rpx;
+    border-radius: 5rpx;
+    text-align: center;
+    line-height: 2;
+}
+

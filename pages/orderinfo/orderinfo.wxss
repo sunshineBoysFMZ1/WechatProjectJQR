@@ -1,0 +1,19 @@
+/* pages/orderinfo/orderinfo.wxss */
+.orderstate{background-color:#03CA83;}
+.cu-bar .action{font-size:40rpx;color:#fff;}
+.wuliubox{background-color:#fff;padding:20rpx 30rpx;margin-bottom:20rpx;}
+.wuliu{padding:20rpx 0;}
+.wuliu .icon image{width:44rpx;height:44rpx;margin-right:20rpx;}
+.infobox .info{font-size:30rpx;flex:1;margin-bottom:8rpx;}
+.infobox .info text{margin-right:20rpx;}
+.point{margin-left:20rpx;}
+@import "../myorder/myorder.wxss";
+.goodsinfo{background-color:#fff;margin-bottom:20rpx;}
+.myorder{border-radius:0;padding:30rpx}
+.totalbox{margin-top:20rpx;line-height:1.7;}
+.totalbox .total-t{color:#666;}
+.totalbox .total-d{font-size:32rpx;}
+.orderinfo{padding:30rpx;background-color:#fff;margin-bottom:146rpx;}
+.ititle{padding-left:10rpx;border-left:solid 6rpx #e54d42;line-height:1;margin-bottom:20rpx;font-size:32rpx;}
+.orderinfo-con{line-height:1.8;color:#555;}
+.footer{position:fixed;width:100%;bottom:0;height:120rpx;padding:0 30rpx;background-color:#fff;border-top:solid 2rpx #e1e1e1}

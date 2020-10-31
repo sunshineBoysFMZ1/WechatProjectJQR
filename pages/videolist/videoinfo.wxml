@@ -1,0 +1,11 @@
+<!--pages/videolist/videoinfo.wxml-->
+<view class="videobox bg-white">
+	<view class="video">
+		<video src="{{Data.video_path}}" object-fit="cover" wx:if='{{is_show == 1}}'></video>
+		<image src="/images/gs5.jpg" object-fit="cover" wx:else style="width:100%"></image>
+	</view>
+	<view class="video-intro">
+		<view class="text-black text-bold">{{Data.title}}</view>
+		<view class="text-sm text-gray margin-top-xs">{{Data.desc}}</view>
+	</view>
+</view>

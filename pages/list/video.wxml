@@ -1,0 +1,78 @@
+<!--pages/mycourse/video.wxml-->
+<view class="cu-bar bg-green">
+	<view class="action flex-sub">P1创意篇</view>
+	<navigator class="action flex align-center" hover-class="none" url="zuoye">
+		<text class="cuIcon-camera margin-right-xs"></text><text>交作业</text>
+	</navigator>
+</view>
+<view class="bg-white">
+	<view class="video"><video src="http://smartbox-out.oss-cn-shanghai.aliyuncs.com/Act-ss-mp4-hd/735de9b5f20b4e128d77e89b11e5f995/V3-1%E5%B0%8F%E7%8C%AB%E9%92%93%E9%B1%BCw.mp4" poster="http://img4.imgtn.bdimg.com/it/u=2963048657,446917289&fm=26&gp=0.jpg" object-fit="cover"></video></view>
+	<view class="video-intro">
+		<view class="text-black">认识自然界小动物，学习自然科学</view>
+	</view>
+</view>
+<view class="padding bg-white margin-top-sm">
+	<view class="title">作业展示</view>
+	<view class="zybox">
+		<view class="item">
+			<view class="userbox flex align-center">
+				<view class="userimg">
+					<image src="/images/user.jpg"></image>
+				</view>
+				<view class="margin-left-sm flex-sub hidden">
+					<view class="oneline">小年糕</view>
+					<view class="text-sm text-gray">2020-07-20 15:32</view>
+				</view>
+			</view>
+			<view class="margin-top-xs">
+				<view class="text-black">作业描述作业描述作业描述</view>
+				<view class="videobox">
+					<video src="http://smartbox-out.oss-cn-shanghai.aliyuncs.com/Act-ss-mp4-hd/735de9b5f20b4e128d77e89b11e5f995/V3-1%E5%B0%8F%E7%8C%AB%E9%92%93%E9%B1%BCw.mp4" poster="http://img4.imgtn.bdimg.com/it/u=2963048657,446917289&fm=26&gp=0.jpg" object-fit="cover"></video>
+				</view>
+			</view>
+			<view class="dpbox flex">
+				<view>老师点评：</view>
+				<view class="flex-sub">老师点评内容老师点评内容,老师点评内容老师点评内容老师点评内容</view>
+			</view>
+		</view>
+    <view class="item">
+			<view class="userbox flex align-center">
+				<view class="userimg">
+					<image src="/images/user.jpg"></image>
+				</view>
+				<view class="margin-left-sm flex-sub hidden">
+					<view class="oneline">小年糕</view>
+					<view class="text-sm text-gray">2020-07-20 15:32</view>
+				</view>
+			</view>
+			<view class="margin-top-xs">
+				<view class="text-black">作业描述作业描述作业描述</view>
+				<view class="videobox">
+					<video src="http://smartbox-out.oss-cn-shanghai.aliyuncs.com/Act-ss-mp4-hd/735de9b5f20b4e128d77e89b11e5f995/V3-1%E5%B0%8F%E7%8C%AB%E9%92%93%E9%B1%BCw.mp4" poster="http://img4.imgtn.bdimg.com/it/u=2963048657,446917289&fm=26&gp=0.jpg" object-fit="cover"></video>
+				</view>
+			</view>
+		</view>
+    <view class="item">
+			<view class="userbox flex align-center">
+				<view class="userimg">
+					<image src="/images/user.jpg"></image>
+				</view>
+				<view class="margin-left-sm flex-sub hidden">
+					<view class="oneline">小年糕</view>
+					<view class="text-sm text-gray">2020-07-20 15:32</view>
+				</view>
+			</view>
+			<view class="margin-top-xs">
+				<view class="text-black">作业描述作业描述作业描述</view>
+				<view class="videobox">
+					<video src="http://smartbox-out.oss-cn-shanghai.aliyuncs.com/Act-ss-mp4-hd/735de9b5f20b4e128d77e89b11e5f995/V3-1%E5%B0%8F%E7%8C%AB%E9%92%93%E9%B1%BCw.mp4" poster="http://img4.imgtn.bdimg.com/it/u=2963048657,446917289&fm=26&gp=0.jpg" object-fit="cover"></video>
+				</view>
+			</view>
+			<view class="dpbox flex">
+				<view>老师点评：</view>
+				<view class="flex-sub">老师点评内容老师点评内容,老师点评内容老师点评内容老师点评内容</view>
+			</view>
+		</view>
+
+	</view>
+</view>

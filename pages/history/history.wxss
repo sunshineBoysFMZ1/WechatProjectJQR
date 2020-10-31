@@ -1,0 +1,20 @@
+/* pages/history/history.wxss */
+.view{
+    width: 48%;
+    background: #fff;
+    border-radius: 10rpx;
+    position: relative;
+    margin-bottom: 10rpx;
+}
+.title{
+    position: absolute;
+    top: 6px;
+    left: 2%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 1));
+    width: 80rpx;
+    height: 40rpx;
+    font-size: 25rpx;
+    border-radius: 5rpx;
+    text-align: center;
+    line-height: 2;
+}

@@ -1,0 +1,48 @@
+<!--pages/m_zijin/m_zijin.wxml-->
+<view class="fxbox">
+  <view class="yongjin">
+    <view class="text">可提现佣金(元)</view>
+    <view class="money">{{sales.ktx}}</view>
+  </view>
+  <view class="txbtn"><button bindtap="apply" data-ktx='{{sales.ktx}}'>提现</button></view>
+</view>
+
+<view class="shouyi flex bg-white text-center">
+  <!-- <view class="flex-sub">
+    <view class="text-xxl">0.00</view>
+    <view class="sub-text">今日收益</view>
+  </view>
+  <view class="flex-sub">
+    <view class="text-xxl">0.00</view>
+    <view class="sub-text">昨日收益</view>
+  </view> -->
+  <view class="flex-sub">
+    <view class="text-xxl">{{sales.ytx}}</view>
+    <view class="sub-text text-green">已提现佣金</view>
+  </view>
+  <view class="flex-sub">
+    <view class="text-xxl">{{sales.wtx}}</view>
+    <view class="sub-text text-orange">未提现佣金</view>
+  </view>
+</view>
+<view class="bg-white">
+  <view class="cu-list menu">
+    <navigator class="cu-item arrow" hover-class="none" url="../fx_order/fx_order">
+      <view class="content flex align-center">
+        <image src="/images/c5.png" class="png" mode="aspectFit"></image>
+        <text class="text-black">分销订单</text>
+      </view>
+    </navigator>
+    <navigator class="cu-item arrow" hover-class="none" url="../tixian/txlist">
+      <view class="content flex align-center">
+        <image src="/images/c6.png" class="png" mode="aspectFit"></image>
+        <text class="text-black">提现明细</text>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<view class="tipsbox">
+  <view class="tipstitle">分销须知</view>
+  <view class="tips">{{about}}</view>
+</view>

@@ -1,0 +1,11 @@
+/* pages/mycourse/video.wxss */
+.bg-green{background-color:#03CA83;}
+.cu-bar .action:first-child{justify-content:start}
+.video video{width:100%;display:block;}
+.video-intro{padding:20rpx 30rpx;font-size:30rpx;}
+.userimg image{width:68rpx;height:68rpx;border-radius:50%;}
+.title{font-size:32rpx;border-left:solid 6rpx #03CA83;padding-left:12rpx;line-height:1;font-weight:bold;margin-bottom:30rpx;color:#222;}
+.videobox video{width:460rpx;height:620rpx;}
+.hidden{overflow:hidden;}
+.dpbox{background-color:#f8f8f8;border-radius:10rpx;padding:20rpx;margin-top:20rpx;}
+.zybox .item{margin-bottom:40rpx;}

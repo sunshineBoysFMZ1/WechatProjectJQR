@@ -1,0 +1,64 @@
+/* pages/course/course.wxss */
+.introbox{padding:20rpx 30rpx;color:#222;margin-bottom:20rpx;}
+.kctitle{font-size:32rpx;font-weight:bold;}
+.kctips{color:#999;margin-top:4rpx;}
+/* margin-left:20rpx; */
+.f_item{
+    text-align: center;
+    color: #999;
+    font-size: 25rpx;
+}
+.share image{width:48rpx;height:48rpx;}
+.text-red,line-red{color:#FF000B;}
+.screen-swiper{min-height:360rpx;overflow:hidden}
+swiper-item navigator{display:inline}
+.nav{height:100rpx;box-sizing:border-box;border-bottom:solid 1rpx rgba(0,0,0,0.1);}
+.nav .cu-item{padding:0 6rpx;margin:0 30rpx;line-height:90rpx;height:80rpx;font-size:30rpx;}
+.navbox{position:fixed;top:0;z-index:999;background-color:#fff;}
+.nav .cu-item.cur{border-bottom:solid 4rpx #03CA83;color:#222;font-weight:bold;}
+.play{width:100rpx;}
+.play image{width:48rpx;height:48rpx;display:inline-block;}
+.text-yellow{color:#ffab28;font-size:24rpx;line-height:1;}
+.tab-content{height:100vh;}
+.navbox+.tab-content{padding-top:100rpx;}
+.tab-content .contents{height:calc(100vh - 100rpx);}
+.cou-intro image{width:100%;display:block;}
+.catalogbox .cu-item{padding:30rpx;border-bottom:solid 1rpx rgba(0,0,0,0.1)}
+.catalogbox .cu-item:last-child{border:0}
+.catalogbox .cu-item .flex-sub{overflow:hidden;}
+.catalogbox .cu-item .title{font-size:30rpx;color:#333;}
+.catalogbox .cu-item .time{font-size:24rpx;color:#999;padding-top:10rpx;}
+.commentbox .cu-item,.usercomment .cu-item{padding:30rpx}
+.userimg image{width:88rpx;height:88rpx;border-radius:50%;margin-right:20rpx;}
+.usercomment .cu-item input{background-color:#f7f7f7;color:#333;font-size:30rpx;border-radius:100rpx;height:68rpx;text-align: center;}
+.commentbox .username{font-size:28rpx;color:#666;}
+.commentbox .time{font-size:24rpx;color:#999;padding:16rpx 0;}
+.commentbox .comment{font-size:30rpx;color:#333;line-height:1.5;}
+/* efb321 */
+
+.height{height:104rpx;}
+.bottom{position:fixed;width:100%;height:104rpx;z-index:99;bottom:0;box-sizing:border-box;padding:0 30rpx;box-sizing:border-box;border-top:solid 2rpx #eee}
+.sub-item{border:0;background-color:#fff;line-height:1;color:#666;flex:1;text-align:left;padding:0;margin:0;}
+.give{position:relative;width:72rpx;padding-top:16rpx;margin-right:24rpx}
+.give .bgimg{position:relative;}
+.give image{width:72rpx;height:72rpx;}
+.give .text{color:#fff;z-index:8;margin-top:-58rpx;position:relative;font-size:20rpx;padding: 0 16rpx;line-height:1.2;}
+.action image{width:48rpx;height:48rpx;}
+.action text{display:block;font-size:24rpx;line-height:1;}
+.btnbox .cu-btn{width:180rpx;color:#fff;font-size:30rpx;padding:0;}
+.btnbox button:first-child{border-radius:80rpx 0 0 80rpx;background-color:#FF5942}
+.btnbox button:last-child{border-radius:0 80rpx 80rpx 0;background-color:#FF000B;}
+button:after{border:none}
+
+/* 分享 */
+.cu-dialog{position:relative;}
+.close{position:absolute;top:24rpx;right:24rpx;}
+.sharebox{padding:40rpx;padding-top:60rpx;}
+.userbox image{width:72rpx;height:72rpx;border-radius:50%;margin-right:16rpx;}
+.userbox .name{max-width:62%;}
+.goodsimg image{width:100%;height:540rpx;display:block;}
+.goodsimg .info{padding:20rpx 0 30rpx}
+.codebox image{width:140rpx;height:140rpx;}
+.cu-dialog .cu-bar{padding:0 10rpx}
+.cu-bar .cu-btn{background-color:#666;color:#fff;line-height:68rpx;margin-bottom:30rpx;}
+.cu-bar .cu-btn:last-child{background-color:#FF5942;}

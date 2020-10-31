@@ -1,0 +1,95 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/list/list",
+    "pages/logs/logs",
+    "pages/my/my",
+    "pages/cart/cart",
+    "pages/class/class",
+    "pages/videolist/videolist",
+    "pages/myorder/myorder",
+    "pages/orderinfo/orderinfo",
+    "pages/addcourse/addcourse",
+    "pages/address/address",
+    "pages/address/add",
+    "pages/address/ad_details",
+    "pages/course/course",
+    "pages/mycourse/mycourse",
+    "pages/course/orderinfo",
+    "pages/fenxiao/fenxiao",
+    "pages/coupon/coupon",
+    "pages/mycoupon/mycoupon",
+    "pages/kindergarten/kindergarten",
+    "pages/kindergarten/course",
+    "pages/project/project",
+    "pages/daili/daili",
+    "pages/shixue/shixue",
+    "pages/fx_order/fx_order",
+    "pages/tixian/txlist",
+    "pages/applytx/applytx",
+    "pages/courselist/courselist",
+    "pages/mycourse/video",
+    "pages/mycourse/zuoye",
+    "pages/about/about",
+    "pages/pingjia/pingjia",
+    "pages/refund/refund",
+    "pages/mycode/mycode",
+    "pages/videolist/videoinfo",
+    "pages/free/free",
+    "pages/history/history"
+  ],
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#03CA83",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab1.png",
+        "selectedIconPath": "/images/tab1_on.png"
+      },
+      {
+        "pagePath": "pages/class/class",
+        "text": "上课",
+        "iconPath": "/images/tab2.png",
+        "selectedIconPath": "/images/tab2_on.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "/images/tab3.png",
+        "selectedIconPath": "/images/tab3_on.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/images/tab4.png",
+        "selectedIconPath": "/images/tab4_on.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "分销",
+        "iconPath": "/images/tab6.png",
+        "selectedIconPath": "/images/tab7.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "plugins": {
+    "live-player-plugin": {
+        "version": "1.1.4", 
+        "provider": "wx2b03c6e691cd7370"
+    }
+},
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#03CA83",
+    "navigationBarTextStyle": "white"
+  },
+ 
+  "sitemapLocation": "sitemap.json"
+}

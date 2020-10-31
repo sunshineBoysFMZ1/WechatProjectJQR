@@ -1,0 +1,11 @@
+/* pages/class/class.wxss */
+@import "../index/index.wxss";
+.cutitle.cu-bar .action:first-child{font-size:30rpx;font-weight:normal;}
+.btnbox .cu-btn{background-color:#03CA83;color:#fff;}
+.hidden{overflow:hidden;}
+.kctips{margin-bottom:26rpx;margin-top:10rpx;}
+.add{width: 120rpx;height:120rpx;border:solid 2rpx #CECECE;border-radius:8rpx;text-align:center;display:flex;justify-content:center;align-items:center;font-size:40rpx;margin-right:20rpx;}
+
+.coursebox .kctitle {margin-top:0;}
+.coursebox.cu-list.menu .cu-item {border:0;margin-bottom:20rpx;}
+.coursebox .btnbox{position:relative;bottom:0;}

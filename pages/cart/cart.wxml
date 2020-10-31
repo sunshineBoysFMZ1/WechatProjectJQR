@@ -1,0 +1,61 @@
+<!--pages/cart/cart.wxml-->
+<view class="carttop bg-white flex justify-between align-center">
+	<navigator class="action flex align-center" hover-class="none" open-type="switchTab" url="../index/index">
+		<text class="cuIcon-shopfill text-red"></text><text class="name">拼高高儿童学院</text>
+		<text class="cuIcon-right text-grey"></text>
+	</navigator>
+	<view class="action hide{{showView?'show':''}}" bindtap="ShowState">管理</view>
+	<view class="action hide{{showView?'':'show'}}" bindtap="ShowState">完成</view>
+</view>
+<view class="carts-list cu-list menu margin-top-sm" wx:if='{{Car_shoop!=""}}'>
+	<block wx:for='{{Car_shoop}}' wx:key='index'>
+		<view class="cu-item">
+			<view class="checked" bindtap="shoopChecked" data-index='{{index}}'>
+				<checkbox class="cb round red" checked="{{item.checked}}"></checkbox>
+			</view>
+			<view class="goodsinfo content flex">
+				<navigator class="goodsimg" hover-class="none" url="">
+					<image src="{{item.course.image}}"></image>
+				</navigator>
+				<view class="contents flex-sub">
+					<navigator hover-class="none" url="">
+						<view class="kctitle twoline">{{item.course.name}}</view>
+						<view class="kctips">{{item.course.desc}}</view>
+					</navigator>
+					<view class="flex align-center justify-between">
+						<view class="price text-red text-lg"><text class="text-sm">￥</text><text>{{item.course.price}}</text></view>
+						<view class="numbox flex">
+							<view class="num-jian cuIcon-move" bindtap="num_jian" data-index='{{index}}'></view>
+							<view class="num-input"><input type="number" value="{{item.num}}" disabled="true"></input></view>
+							<view class="num-jia cuIcon-add" bindtap="num_jia" data-index='{{index}}'></view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</block>
+</view>
+<view class="listbox text-center" style="margin-top:45%" wx:else>
+	<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+	<view>还没有添加商品~</view>
+</view>
+<!-- 结算 -->
+<view class="footer-h"></view>
+<view class="carts-footer flex justify-between align-center">
+	<view class="chkAll" bindtap="bindSelectAll">
+		<checkbox class="cb round red" checked='{{shoopAuto}}'></checkbox><text class="margin-left-xs">全选</text>
+	</view>
+	<view class="flex align-center hide{{showView?'show':''}}">
+		<view class="total"><text>合计：</text><text class="text-red">￥</text>
+			<text class="text-red text-xl">{{shoopPrice}}</text>
+		</view>
+		<view class="btn-pay" bindtap='bindjiesuan'>
+			<button class="cu-btn lg bg-red round">去结算({{shoop_id.length}})</button>
+		</view>
+	</view>
+	<view class="flex align-center hide{{showView?'':'show'}}">
+		<view class="btn-pay" bindtap="deleteShoop">
+			<button class="cu-btn line-red round">删除</button>
+		</view>
+	</view>
+</view>

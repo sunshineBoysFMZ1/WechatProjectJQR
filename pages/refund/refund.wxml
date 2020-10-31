@@ -1,0 +1,50 @@
+<!--pages/refund/refund.wxml-->
+<view class="myorder padding bg-white">
+	<block wx:for='{{orderData.course}}' wx:key='index'>
+		<view class="flex align-start" style="padding:6rpx;">
+			<view class="goodsimg ">
+				<image src="{{item.images}}"></image>
+			</view>
+			<view class="">
+				<view class="goods-name margin-bottom-xs">{{item.name}}</view>
+				<view class="text-sm text-gray">{{item.desc}}</view>
+			</view>
+		</view>
+	</block>
+</view>
+<form>
+	<view class="listbox margin-top">
+		<view class="cu-form-group align-start">
+			<view class="title">退款原因</view>
+			<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="填写退款原因"></textarea>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">退款金额</view>
+			<text class="money">￥{{orderData.pay_price}}</text>
+		</view>
+		<view class="cu-form-group align-start">
+			<view class="title">退款说明</view>
+			<text class="flex-sub padding-top padding-bottom">{{about}}</text>
+		</view>
+
+		<view class="cu-bar bg-white margin-top">
+			<view class="action">图片上传</view>
+			<view class="action">{{imgList.length}}/3</view>
+		</view>
+		<view class="cu-form-group">
+			<view class="grid col-4 grid-square flex-sub">
+				<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+					<image src='{{imgList[index]}}' mode='aspectFill'></image>
+					<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+						<text class="cuIcon-close"></text>
+					</view>
+				</view>
+				<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<3}}">
+					<text class="cuIcon-cameraadd"></text>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="btnbox" bindtap="userapply"><button>立即申请</button></view>
+</form>

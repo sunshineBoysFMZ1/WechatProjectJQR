@@ -1,0 +1,36 @@
+/**app.wxss**/
+@import "libs/main.wxss";
+@import "libs/icon.wxss";
+.twoline{display:-webkit-box;overflow:hidden;text-overflow: ellipsis;word-wrap: break-word;white-space: normal !important;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+.oneline{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.cu-form-group picker{padding-right:0;}
+.cu-form-group picker::after {display: none;position: relative;}
+.cu-form-group picker .picker{padding-right:40rpx;font-size:32rpx;}
+.cu-form-group picker .picker::after {font-family: "cuIcon";display: block;content: "\e6a3";position: absolute;font-size: 34rpx;color: var(--grey);line-height: 100rpx;width: 60rpx;text-align: center;top: 0;bottom: 0;right: -20rpx;margin: auto;}
+.bg-green{background-color:#03CA83;}
+
+.nodata{
+    position: fixed;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+}
+.nodata image{
+    width: 300rpx;
+    height: 180rpx;
+}   
+.nodata text{
+    font-weight: 600;
+}
+
+
+.listbox{padding:24rpx 18rpx 0}
+.listbox .item{padding:0 12rpx;position:relative;padding-bottom:24rpx;overflow:hidden;width:50%;}
+.listbox .item image{position:relative;height:440rpx;width:100%;border-radius:10rpx;display:block;}
+.listbox .item .videotitle{position:relative;margin-top:-60rpx;bottom:0;background:rgba(0, 0, 0, 0.4);border-radius:0 0 10rpx 10rpx;height:60rpx;color:#fff;line-height:60rpx;padding:0 16rpx;font-size:30rpx;width:100%;}
+.empty{width:180rpx;}
+.huanhang{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}

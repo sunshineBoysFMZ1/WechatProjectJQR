@@ -1,0 +1,8 @@
+<!--pages/list/list.wxml-->
+<view class="padding text-center">
+	<block wx:for='{{lanmuData}}' wx:key='index'>
+		<view bindtap="DetailPath" class=" radius shadow-blur margin-top bg-img"  style="background-color:#fff"  data-path="{{item.path}}" >
+			<image src="{{item.image}}" style="width:382px;height:110px"></image>
+		</view>
+	</block>
+</view>

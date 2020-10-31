@@ -1,0 +1,13 @@
+<wxs module='Time' src="../mycoupon/time.wxs"></wxs>
+<view class="cu-bar bg-green">
+	<view class="action flex-sub">{{freeData.name}}</view>
+</view>
+<view class="bg-white">
+	<view class="video">
+		<video src="{{freeData.video_path}}" object-fit="cover" wx:if='{{is_show == 1}}'></video>
+		<image src="/images/kc.jpg" wx:else style='text-align:center;width:100%;'></image>
+	</view>
+	<!-- <view class="video-intro">
+		<view class="text-black">{{detail.content}}</view>
+	</view>  -->
+</view>

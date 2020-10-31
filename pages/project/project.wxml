@@ -1,0 +1,10 @@
+<!--pages/project/project.wxml-->
+<view style="text-align:center;width:100%;">
+	<import src="../../utils/wxParse/wxParse.wxml" />
+	<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+
+<view class="listbox text-center" hidden="{{about!=''}}">
+	<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+	<view>什么都没有~</view>
+</view>

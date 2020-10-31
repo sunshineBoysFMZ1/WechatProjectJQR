@@ -1,0 +1,3 @@
+/* pages/project/project.wxss */
+page{background-color:#fff;}
+image{width:100%;}

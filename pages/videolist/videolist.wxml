@@ -1,0 +1,14 @@
+<!--pages/videolist/videolist.wxml-->
+<view class="listbox grid col-2 bg-white" wx:if='{{videoData!=""}}'>
+	<block wx:for='{{videoData}}' wx:key='index'>
+		<navigator class="item" hover-class="none" url="videoinfo?id={{item.id}}">
+			<image src="{{item.image}}"></image>
+			<view class="videotitle oneline">{{item.title}}</view>
+		</navigator>
+	</block>
+</view>
+
+<view class="listbox text-center" wx:else>
+	<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+	<view>还没有视频作品哦~</view>
+</view>

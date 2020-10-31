@@ -1,0 +1,19 @@
+<!--pages/daili/daili.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset"> 
+	<view class="img" style="text-align:center;">
+		<import src="../../utils/wxParse/wxParse.wxml" />
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	</view>
+	<view class="formbox">
+		<view class="cu-title">代理申请：</view>
+		<view class="cu-form-group">
+			<view class="title">您的姓名：</view>
+			<input placeholder="请输入您的姓名" name='uname'></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">联系方式：</view>
+			<input placeholder="请输入您的联系方式" name='phone'></input>
+		</view>
+		<view class="btnbox margin-top"><button class="cu-btn lg round" formType="submit">提交申请</button></view>
+	</view>
+</form>

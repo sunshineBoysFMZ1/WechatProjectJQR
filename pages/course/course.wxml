@@ -1,0 +1,128 @@
+<wxs module='Time' src='../mycoupon/time.wxs'></wxs>
+<view class="banner">
+	<swiper class="screen-swiper" circular="true" autoplay="true" interval="5000" duration="500">
+		<swiper-item wx:for="{{courseData.img}}" wx:key='index'>
+			<image src="{{item}}" mode="aspectFill" mode="widthFix"></image>
+		</swiper-item>
+	</swiper>
+</view>
+<view class="bg-white introbox">
+	<view class="flex justify-between align-centre">
+		<view class="kctitle flex-sub">{{courseData.name}}</view>
+		<view class="share" bindtap="showModal" data-target="share">
+			<image src="/images/share.png" mode="heightFix"></image>
+			<view class="f_item">分享</view>
+		</view>
+	</view>
+	<view class="kctips">{{courseData.desc}}</view>
+</view>
+<view class="bg-white">
+	<view></view>
+</view>
+<!-- 介绍导航 -->
+<view class="pagecontent bg-white">
+	<scroll-view scroll-x class="nav text-center {{ hideTop == true ? 'navbox' : 'disblock' }}">
+		<view class="cu-item {{0==TabCur?'cur':''}}" bindtap="tabSelect" data-id="0">介绍</view>
+		<view class="cu-item {{1==TabCur?'cur':''}}" bindtap="tabSelect" data-id="1" data-ii='0'>课程目录</view>
+		<view class="cu-item {{2==TabCur?'cur':''}}" bindtap="tabSelect" data-id="2" data-ii='1'>评论</view>
+	</scroll-view>
+	<view class="cou-intro" wx:if='{{0==TabCur}}'>
+		<import src="../../utils/wxParse/wxParse.wxml" />
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	</view>
+	<view class="contents" wx:if='{{1==TabCur}}'>
+		<block wx:for='{{courseData.detail}}' wx:key='index' wx:for-item='detail'>
+			<view class="catalogbox padding">
+				<text class="titles">{{detail.name}}</text>
+				<block wx:for='{{detail.catalog}}' wx:for-index='ii' wx:key='ii'>
+					<view class="cu-item flex align-center" bindtap="navigator" data-is_charge="{{item.is_charge}}" data-id="{{item.id}}" data-fi='{{index}}' data-i="{{ii}}">
+						<view class="flex-sub">
+							<view class="title oneline">{{item.name}}</view>
+							<!-- <view class="time">10:55</view> -->
+						</view>
+						<view class="play text-center" wx:if='{{item.is_charge==2}}'>
+							<image src="/images/play-try.png" wx:if='{{is_show == 1}}'></image>
+							<image src="/images/c5.png" wx:else></image>
+							<view class="text-yellow">免费试学</view>
+						</view>
+						<view class="play text-center" wx:else>
+							<image src="/images/play.png" wx:if='{{is_show == 1}}'></image>
+							<image src="/images/c5.png" wx:else></image>
+							<view class="text-yellow"></view>
+						</view>
+					</view>
+				</block>
+			</view>
+		</block>
+	</view>
+	<view class="contents" wx:if='{{2==TabCur}}'>
+		<view class="commentbox" wx:if='{{plistData!=""}}'>
+			<block wx:for='{{plistData}}' wx:key='index'>
+				<view class="cu-item flex">
+					<view class="userimg">
+						<image src="{{item.avatar}}"></image>
+					</view>
+					<view class="flex-sub">
+						<view class="username">{{item.nickname}}</view>
+						<view class="time">{{Time.dataTime(item.createtime)}}</view>
+						<view class="comment">{{item.content}}</view>
+					</view>
+				</view>
+			</block>
+		</view>
+		<view class="listbox text-center" wx:else>
+			<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+			<view>还没有评论~</view>
+		</view>
+	</view>
+</view>
+
+<!-- 底部导航 -->
+<view class="height"></view>
+<view class="bottom flex bg-white">
+	<view class="give text-center" bindtap="buy">
+		<view class="bgimg" bindtap="buy">
+			<image src="/images/zs.png" bindtap="buy"></image>
+		</view>
+		<view class="text">赠送好友</view>
+	</view>
+	<view class="action flex-sub grid col-3 align-center">
+		<navigator class="sub-item" hover-class="none" url="../index/index" open-type="switchTab">
+			<image src="/images/b1.png"></image>
+			<text>首页</text>
+		</navigator>
+		<button class="sub-item" open-type="contact">
+			<image src="/images/b2.png"></image>
+			<text>客服</text>
+		</button>
+		<navigator class="sub-item" hover-class="none" url="../shixue/shixue?index={{icon}}">
+			<image src="/images/b3.png" wx:if='{{is_show == 1}}'></image>
+			<image src="/images/pro2.png" wx:else></image>
+			<text>试学</text>
+		</navigator>
+	</view>
+	<view class="btnbox flex align-center" wx:if='{{is_login}}'>
+		<button class="cu-btn lg" bindtap="haveCar">加入购物车</button>
+		<button class="cu-btn lg" bindtap="buy" data-id="">购买课程</button>
+	</view>
+	<view class="btnbox flex align-center" wx:else>
+		<button class="cu-btn lg" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">加入购物车</button>
+		<button class="cu-btn lg" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">购买课程</button>
+	</view>
+
+</view>
+
+<!-- 分享  -->
+<view class="cu-modal {{modalName=='share'?'show':''}}">
+	<view class="cu-dialog bg-white">
+		<view class="close text-xl" bindtap="hideModal"><text class="cuIcon-close "></text></view>
+		<view class="sharebox">
+			<image src="{{goodsInfoImg}}" mode="widthFix"></image>
+		</view>
+		<view class="cu-bar">
+			<!-- <view bindtap="shareUse"></view> -->
+			<button class="action cu-btn round" open-type="share">分享给好友</button>
+			<view class="action cu-btn round" bindtap="uploadimg">保存图片</view>
+		</view>
+	</view>
+</view>

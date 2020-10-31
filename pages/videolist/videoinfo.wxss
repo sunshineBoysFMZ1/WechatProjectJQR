@@ -1,0 +1,4 @@
+/* pages/videolist/videoinfo.wxss */
+page{background-color:#fff;}
+@import "../shixue/shixue.wxss";
+.videobox{margin-top:30rpx;}

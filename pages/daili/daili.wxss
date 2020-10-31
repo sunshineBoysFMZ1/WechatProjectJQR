@@ -1,0 +1,10 @@
+/* pages/daili/daili.wxss */
+page{background-color:#fff;}
+.img image{width:100%;}
+.cu-title{padding:10rpx 30rpx;font-size:32rpx;font-weight:bold;}
+.formbox{padding:20rpx 0}
+.cu-form-group+.cu-form-group {border-top:none;}
+.cu-form-group input{border:solid 2rpx #CECECE;border-radius:8rpx;line-height:76rpx;height:76rpx;padding:0 16rpx}
+.cu-form-group .title{padding-right:20rpx;}
+.btnbox{padding:20rpx 30rpx;width:100%;box-sizing:border-box}
+.cu-btn{background-color:#03CA83 !important;width:100%;color:#fff;}

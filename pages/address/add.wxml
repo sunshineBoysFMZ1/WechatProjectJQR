@@ -1,0 +1,49 @@
+<!--pages/address/add.wxml-->
+<form>
+	<view class="listbox">
+		<view class="cu-form-group">
+			<view class="title">收货人</view>
+			<input placeholder="姓名"  bindinput="text" data-i="0" value='{{uname}}'></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">手机号</view>
+			<input placeholder="手机号码" bindinput="text" data-i="1" type="number" maxlength="11" value='{{uphone}}'></input>
+		</view>
+		<view class="cu-form-group" style="display:flex;justify-content:flex-start">
+			<view class="title" data-mold="city" bindtap="risePicker">地区信息</view>
+			<!-- <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}"> -->
+				<view class="picker"  data-mold="city" bindtap="risePicker">
+					{{cityText}}
+				</view>
+			<!-- </picker> -->
+		</view>
+		<view class="cu-form-group">
+			<view class="title">详细地址</view>
+			<input placeholder="街道门牌号" bindinput="text" data-i="2" value='{{uaddress}}'></input>
+		</view>
+	</view>
+</form>
+<view class="btnbox" bindtap="add"><button class="cu-btn lg bg-red round">保存地址</button></view>
+<!-- 地址 -->
+<view hidden="{{isCity}}" class="selector">
+	<view class="inner_box">
+		<view class="header_box">
+			<view class="item l" data-act="cancel" data-mold="city" bindtap="ideChoice">取消</view>
+			<view class="item c">请选择</view>
+			<view class="item r" data-act="confirm" data-mold="city" bindtap="ideChoice">确定</view>
+		</view>
+
+		<picker-view class="picker_box" indicator-class="selected" value="{{cityValue}}" bindchange="cityChange">
+			<picker-view-column>
+				<view wx:for="{{provinces}}" wx:key='index'>{{item}}</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{citys}}" wx:key='index'>{{item}}</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{countys}}" wx:key='index'>{{item}}</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+	<view class="layer"></view>
+</view>

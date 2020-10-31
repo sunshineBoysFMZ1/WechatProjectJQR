@@ -1,0 +1,39 @@
+/* pages/mycode/mycode.wxss */
+@import "../myorder/myorder.wxss";
+@import "../class/class.wxss";
+
+.pagecontent {
+    height: calc(100vh - 92rpx)
+}
+
+.coursebox {
+    padding: 20rpx
+}
+
+.coursebox.cu-list.menu .cu-item {
+    padding: 24rpx
+}
+
+.coursebox .kctitle {
+    font-weight: normal;
+}
+
+.coursebox .code {
+    font-weight: bold;
+    font-size: 30rpx
+}
+
+span {
+    display: block;
+    width: 50rpx;
+    height: 40rpx;
+    font-size: 21rpx;
+    color: #fff;
+    background: #999;
+    position: absolute;
+    top: 0;
+    left: 48%;
+    text-align: center;
+    border-radius: 8rpx;
+    margin-left: 27rpx;
+}

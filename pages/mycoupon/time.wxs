@@ -1,0 +1,25 @@
+var wxjs = {
+    dataTime: function (value) {
+        var time =getDate(value * 1000) 
+        var y = time.getFullYear();
+        var m = time.getMonth() + 1;
+        var d = time.getDate();
+        var h = time.getHours();
+        var mm = time.getMinutes() < 10 ? '0'+time.getMinutes() :time.getMinutes() ;
+        var s = time.getSeconds() < 10 ? '0'+time.getSeconds() : time.getSeconds();
+        return y + '-' + m + '-' + d ;
+    },
+    toFixeds:function(value){
+        return (value).toFixed(2)
+    },
+    replace:function(value){
+        var regexp = getRegExp('/\<img/gi', '<img style="width:100%;height:auto" ');
+        var newText = value.replace(regexp,'');
+        return newText;
+    },
+}
+module.exports = {
+    dataTime:wxjs.dataTime,
+    toFixeds:wxjs.toFixeds,
+    replace:wxjs.replace
+}

@@ -1,0 +1,109 @@
+<!--pages/course/orderinfo.wxml-->
+<wxs module='Time' src='../mycoupon/time.wxs'></wxs>
+<view class="wuliubox container">
+	<view class="wuliu text-gray">本课程包含教具，我们将免费邮寄给你</view>
+
+	<view class="wuliu flex align-center" wx:if='{{orderData.address}}' bindtap="haveAdd">
+		<view class="icon">
+			<image src="/images/c8.png" />
+		</view>
+		<view class="infobox flex-sub">
+			<view class="info"><text>{{orderData.address.name}}</text><text>{{orderData.address.phone}}</text></view>
+			<view class="info-des">{{orderData.address.province_id}}{{orderData.address.city_id}}{{orderData.address.region_id}}{{orderData.address.detail}}</view>
+		</view>
+		<view class="point"><text class="cuIcon-right text-gray"></text></view>
+	</view>
+	<view class="flex infobox align-center" wx:else bindtap="haveAdd">
+		<view class="flex-sub info text-bold">请添加收货地址</view>
+		<view class="point"><text class="cuIcon-right text-gray"></text></view>
+	</view>
+</view>
+<view class="goodsinfo container" hidden="{{err}}">
+	<view class="myorder">
+		<block wx:for='{{orderData.course}}' wx:key='index'>
+			<view class="cu-item flex goodsinfo">
+				<view class="goodsimg">
+					<image src="{{item.image}}"></image>
+				</view>
+				<view class="contents flex flex-sub">
+					<view class="">
+						<view class="goodsname twoline flex-sub">{{item.name}}</view>
+						<view class="kctips text-sm padding-top-xs twoline">{{item.desc}}</view>
+					</view>
+					<view class="text-right margin-left-sm">
+						<view class="price text-lg text-red"><text class="text-sm">￥</text><text>{{item.total_price}}</text></view>
+						<view class="goodsnum text-gray">x{{item.num}}</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+	<view class="totalbox" hidden="{{err}}">
+
+		<view class="flex justify-between align-center">
+			<view style="width:100%" class="flex justify-between align-center" data-sad='{{coupon.money}}' bindtap="showModal" data-target="bottomModal">
+				<view class="text-black margin-right">使用优惠券</view>
+				<view class="flex align-center flex-sub justify-between">
+					<view class="text-df text-gray">{{coupon.title}}</view>
+					<view class="flex align-cener">
+						<text class="margin-right-xs text-df text-red" wx:if='{{coupon.money}}'>-{{coupon.money}}</text>
+						<!-- <text class="margin-right-xs text-df text-red" wx:else>领取优惠券</text> -->
+						<text class="cuIcon-right text-gray"></text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- {{coupon.moeny}} -->
+<view class="f-height"></view>
+<view class="footer flex justify-between align-center">
+	<view class="flex align-center">
+		<text class="text-sm">实付：￥</text>
+		<text class="text-xl text-red" wx:if='{{err}}'>0.00</text>
+		<text class="text-xl text-red" wx:elif='{{coupon.money == 0}}'>{{orderData.price}}</text>
+		<text class="text-xl text-red" wx:else>{{Time.toFixeds(orderData.price-coupon.money)}}</text>
+	</view>
+	<view class="btn text-right" bindtap="createorder">
+		<button class="cu-btn lg round bg-red">提交订单</button>
+	</view>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="pop-goods-close" bindtap="hideModal" style="text-align:right;padding:15rpx;">
+			<text class="cuIcon-roundclose text-gray"></text>
+		</view>
+		<view class="couponbox">
+			<view style="height:70rpx;display:flex;" bindtap="paycoupon" wx:if='{{coupon.money}}'>
+				<button class="cu-btn round " style="background:#999;color:#fff;">不使用优惠券</button>
+			</view>
+			<block wx:for='{{orderData.coupon.coupon}}' wx:key='index'>
+				<view class="coupon" wx:if='{{item.usable}}'>
+					<view class="topbox flex align-center">
+						<view class="money text-center">
+							<view class="flex justify-center align-center"><text>￥</text><text class="price">{{item.money}}</text></view>
+							<view>满￥{{item.fullmoney}}使用</view>
+						</view>
+						<view class="getbox flex-sub">
+							<view class="flex align-center">
+								<view class="tips" wx:if='{{item.stypestatus == 1 }}'>满减券</view>
+								<view class="tips" wx:else>代金券</view>
+								<view>{{item.title}}</view>
+							</view>
+							<view class="flex justify-between align-center padding-top-sm">
+								<view class="text-sm text-gray">有限期至：{{Time.dataTime(item.endtime)}}</view>
+								<view class="btnbox" data-index='{{index}}' bindtap="haveCoupon"><button class="cu-btn round bg-red">立即使用</button></view>
+							</view>
+						</view>
+					</view>
+					<view class="intro">{{item.remark}}</view>
+				</view>
+			</block>
+		</view>
+		<view class="listbox text-center" hidden="{{orderData.coupon.coupon}}" bindtap="donw">
+			<image class="empty" src="/images/empty.png" mode="widthFix"></image>
+			<view>还没有优惠券,点击查看可领取优惠券~</view>
+		</view>
+	</view>
+</view>

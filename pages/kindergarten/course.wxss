@@ -1,0 +1,4 @@
+/* pages/course/course.wxss */
+@import "../course/course.wxss";
+.btnbox button:last-child{border-radius:80rpx;}
+.sub-item{margin-right:24rpx;}
